@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/fetch/consultation.js"></script>
+    <title>Consultation Form | CDS</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="images/icon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+    <link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+    <link href="plugins/jquery-datepicker/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="plugins/jquery-timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+    <link rel="stylesheet" type="text/css" href="styles/blog_responsive.css">
+</head>
+<style>
+
+
+    @font-face {
+        font-family: myFirstFont;
+        src:url("font/Sahel.ttf");
+    }
+
+    p{
+        font-family: myFirstFont;
+        font-size: 16px;
+    }
+    .saheltitle
+    {
+        font-family: myFirstFont;
+
+    }
+    @media screen and (min-width:800px) {
+        .hover09 figure img {
+            -webkit-filter: sepia(100%);
+            filter: sepia(100%);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+
+        .hover09 figure:hover img {
+            -webkit-filter: sepia(0);
+            filter: sepia(0);
+        }
+    }
+    .hov:hover{
+        color: #FFCD05;
+    }
+    .search-input{
+        direction: rtl;
+        /*border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        */
+        border-radius: 0.8rem;
+        /*border-bottom: 2px solid yellow;*/
+        background-color: transparent;
+        color: white;
+        border:solid 2px white;
+    }
+    .search-input::placeholder{
+        color: #fff;
+    }
+    .search-input:focus{
+        outline: none;
+    }
+
+    .search-btn{
+        border: 0;
+        color: white !important;
+        font-size: 18px;
+        padding-right: 3px;
+        background-color: transparent;
+    }
+</style>
+<body  style="background-image: url(images/loginbg.png);background-size:20%;background-repeat: repeat;font-family: myFirstFont;">
+<div class="super_container">
+
+
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="header_content d-flex flex-row align-items-center justify-content-start textrtl ">
+                        <div class="logo">
+                            <a href="http://www.cdsapply.com">
+                                <div class="text-center">CDS</div>
+                                <div>we build careers</div>
+                            </a>
+                        </div>
+                        <nav class="main_nav" style="margin-left: 30%">
+                            <ul  class="d-flex flex-row align-items-center justify-content-start ">
+                                <li><a class="text-white mr-0 ml-0" style="font-size: 12px;" >فرم مشاوره تحصیلی</a></li>
+                                <li><a href="index.html" style="font-size: 12px;" >  < صفحه اصلی</a></li>
+                                <li><a href="index_english.html" class="btn btn-outline-light" href="index.html">EN</a></li>
+                                <li class=" rounded">
+                                    <button type="submit" id="searchQbtn" aria-label="Search..." class="search-btn" onclick="gotosearch()"><i class="fa fa-search"></i></button>
+                                    <input id="searchQ" class="search-input" name="q" type="text" placeholder="  جست و جو..." value=""   />
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="hamburger_bar trans_400 d-flex flex-row align-items-center justify-content-start">
+        <div class="hamburger">
+            <div class="menu_toggle d-flex flex-row align-items-center justify-content-start">
+                <span> فهرست </span>
+                <div class="hamburger_container">
+                    <div class="menu_hamburger">
+                        <div class="line_1 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                        <div class="line_2 hamburger_lines" style="visibility: inherit; opacity: 1;"></div>
+                        <div class="line_3 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="menu trans_800">
+        <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+            <ul>
+                <li><a href="index_english.html" class="btn btn-outline-light align-content-center" style="width: fit-content;margin-left:37%" >EN</a></li>
+
+                <li><a href="index.html">صفحه اصلی</a></li>
+                <!-- <li >
+                    <button type="submit" aria-label="Search..." class="search-btn"><i class="fa fa-search"></i></button>
+                    <input class="search-input" name="q" type="text" placeholder="  جست و جو..." value=""   />
+                </li> -->
+            </ul>
+
+        </div>
+        <div class="menu_reservations_phone ml-auto"><div class="logo">
+            <a href="http://www.cdsapply.com">
+                <div>C    D    S</div>
+                <div class="mt-auto">we build careers</div>
+            </a>
+        </div></div>
+    </div>
+
+
+
+    <div class="home">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/background.jpg" data-speed="1.2"></div>
+        <div class="home_container text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content text-center">
+                            <div style="width: 100%"><div style="width: 50%;margin-top: -30%;margin-bottom: -10%;margin-left: 25%" class="hover09 "> <figure><img width="100%"   src="images/logo.png"></figure></div></div>
+                            <div class="home_title"><h1 class="saheltitle hov">موسسه اعزام دانشجو</h1></div>
+                            <div class="home_title"><h1 class="saheltitle hov">کندو دانش آوران سام</h1></div>
+                            <div class="home_text ml-auto mr-auto">
+                                <p class="hov">مهاجرت تحصیلی به کانادا، استرالیا، نیوزیلند و سایر کشور ها</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll_icon"></div>
+    </div>
+
+
+    <div>
+        <div class="container">
+            <div class="m-5 border border-dark bg-white" >
+                <div class="text-dark text-center border-bottom border-dark">
+                    <p style="font-size: 36px; font-weight: bold">برای دریافت مشاوره لطفا فرم مشاوره تحصیلی را پر کنید</p>
+                </div>
+                <div class="m-5 text-right" style="font-size: 22px;color: black;direction: rtl">
+                    <form  method="post" action="">
+                        <p data-aos="fade-right" class="font-weight-bold">
+                            <br>
+                            مشاوره رایگان تحصیلی جهت اخذ پذیرش از دانشگاه های خارج از کشور
+
+                        </p>
+                        <p data-aos="fade-left">
+                            در صورتی که مایلید شرایط شما جهت ادامه تحصیل در دانشگاه های خارج از کشور، توسط مشاورین باتجربه و متخصص موسسه اعزام دانشجوی «ایلیاد بین‌الملل» ارزشیابی گردد، فرم مشاوره زیر را تکمیل نمایید. پس از دریافت اطلاعات، حداکثر طی دو روز کاری با شما تماس خواهیم گرفت. قابل توجه است که موسسه ایلیاد بین‌الملل دارای مجوز اعزام دانشجو از وزارت علوم ایران می‌باشد.
+                        </p>
+                        <hr><br>
+                        <p data-aos="fade-right" class="text-center bg-success font-weight-bold">مشخصات فردی</p>
+                        <label data-aos="fade-left" style="margin-top: 1%">نام :</label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto" class="form-control text-left" dir="ltr" type="text" placeholder="Given Names">
+                        <label data-aos="fade-left" style="margin-top: 1%">نام خانوادگی :</label>
+                        <input data-aos="fade-right" style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="Family Names">
+                        <label data-aos="fade-left" style="margin-top: 1%">تاریخ تولد :</label>
+                        <div class="row">
+                            <div class="col-4 d-flex d-inline">
+                                <select data-aos="fade-right" class="form-control text-left" dir="ltr" >
+                                    <option value="">Day</option>
+                                    <option value="1" >1</option>
+                                    <option value="2" >2</option>
+                                    <option value="3" >3</option>
+                                    <option value="4" >4</option>
+                                    <option value="5" >5</option>
+                                    <option value="6" >6</option>
+                                    <option value="7" >7</option>
+                                    <option value="8" >8</option>
+                                    <option value="9" >9</option>
+                                    <option value="10" >10</option>
+                                    <option value="11" >11</option>
+                                    <option value="12" >12</option>
+                                    <option value="13" >13</option>
+                                    <option value="14" >14</option>
+                                    <option value="15" >15</option>
+                                    <option value="16" >16</option>
+                                    <option value="17" >17</option>
+                                    <option value="18" >18</option>
+                                    <option value="19" >19</option>
+                                    <option value="20" >20</option>
+                                    <option value="21" >21</option>
+                                    <option value="22" >22</option>
+                                    <option value="23" >23</option>
+                                    <option value="24" >24</option>
+                                    <option value="25" >25</option>
+                                    <option value="26" >26</option>
+                                    <option value="27" >27</option>
+                                    <option value="28" >28</option>
+                                    <option value="29" >29</option>
+                                    <option value="30" >30</option>
+                                    <option value="31" >31</option></select>
+                            </div>
+                            <div class="col-4 d-flex d-inline">
+                                <select data-aos="fade-right" class="form-control text-left" dir="ltr">
+                                    <option value="">Month</option>
+                                    <option value="1" >1 - Jan</option>
+                                    <option value="2" >2 - Feb</option>
+                                    <option value="3" >3 - Mar</option>
+                                    <option value="4" >4 - Apr</option>
+                                    <option value="5" >5 - May</option>
+                                    <option value="6" >6 - Jun</option>
+                                    <option value="7" >7 - Jul</option>
+                                    <option value="8" >8 - Aug</option>
+                                    <option value="9" >9 - Sep</option>
+                                    <option value="10" >10 - Oct</option>
+                                    <option value="11" >11 - Nov</option>
+                                    <option value="12" >12 - Dec</option></select>
+                            </div>
+                            <div class="col-4 d-flex d-inline">
+                                <select data-aos="fade-right" class="form-control text-left" dir="ltr">
+                                    <option value="">Year</option>
+                                    <option value="1940" >1940</option>
+                                    <option value="1941" >1941</option>
+                                    <option value="1942" >1942</option>
+                                    <option value="1943" >1943</option>
+                                    <option value="1944" >1944</option>
+                                    <option value="1945" >1945</option>
+                                    <option value="1946" >1946</option>
+                                    <option value="1947" >1947</option>
+                                    <option value="1948" >1948</option>
+                                    <option value="1949" >1949</option>
+                                    <option value="1950" >1950</option>
+                                    <option value="1951" >1951</option>
+                                    <option value="1952" >1952</option>
+                                    <option value="1953" >1953</option>
+                                    <option value="1954" >1954</option>
+                                    <option value="1955" >1955</option>
+                                    <option value="1956" >1956</option>
+                                    <option value="1957" >1957</option>
+                                    <option value="1958" >1958</option>
+                                    <option value="1959" >1959</option>
+                                    <option value="1960" >1960</option>
+                                    <option value="1961" >1961</option>
+                                    <option value="1962" >1962</option>
+                                    <option value="1963" >1963</option>
+                                    <option value="1964" >1964</option>
+                                    <option value="1965" >1965</option>
+                                    <option value="1966" >1966</option>
+                                    <option value="1967" >1967</option>
+                                    <option value="1968" >1968</option>
+                                    <option value="1969" >1969</option>
+                                    <option value="1970" >1970</option>
+                                    <option value="1971" >1971</option>
+                                    <option value="1972" >1972</option>
+                                    <option value="1973" >1973</option>
+                                    <option value="1974" >1974</option>
+                                    <option value="1975" >1975</option>
+                                    <option value="1976" >1976</option>
+                                    <option value="1977" >1977</option>
+                                    <option value="1978" >1978</option>
+                                    <option value="1979" >1979</option>
+                                    <option value="1980" >1980</option>
+                                    <option value="1981" >1981</option>
+                                    <option value="1982" >1982</option>
+                                    <option value="1983" >1983</option>
+                                    <option value="1984" >1984</option>
+                                    <option value="1985" >1985</option>
+                                    <option value="1986" >1986</option>
+                                    <option value="1987" >1987</option>
+                                    <option value="1988" >1988</option>
+                                    <option value="1989" >1989</option>
+                                    <option value="1990" >1990</option>
+                                    <option value="1991" >1991</option>
+                                    <option value="1992" >1992</option>
+                                    <option value="1993" >1993</option>
+                                    <option value="1994" >1994</option>
+                                    <option value="1995" >1995</option>
+                                    <option value="1996" >1996</option>
+                                    <option value="1997" >1997</option>
+                                    <option value="1998" >1998</option>
+                                    <option value="1999" >1999</option>
+                                    <option value="2000" >2000</option>
+                                    <option value="2001" >2001</option>
+                                    <option value="2002" >2002</option>
+                                    <option value="2003" >2003</option>
+                                    <option value="2004" >2004</option>
+                                    <option value="2005" >2005</option>
+                                    <option value="2006" >2006</option>
+                                    <option value="2007" >2007</option>
+                                    <option value="2008" >2008</option>
+                                    <option value="2009" >2009</option>
+                                    <option value="2010" >2010</option>
+                                    <option value="2011" >2011</option>
+                                    <option value="2012" >2012</option></select>
+                            </div>
+                        </div>
+                        <label data-aos="fade-left" style="margin-top: 1%">وضعیت تاهل :</label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Marrital Status</option><option value="Single" >مجرد</option><option value="Unmarried Partner" >نامزد</option><option value="Married/Civil Partner" >متاهل</option><option value="Divorced/Dissolved Partnership" >مطلقه</option><option value="Separated" >جداشده</option><option value="Widowed/Surviving Civil Partner" >بیوه</option></select>
+
+                        <label data-aos="fade-left" style="margin-top: 1%">جنسیت :</label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Gender</option><option value="Single" >مرد</option><option value="Unmarried Partner" >زن</option>
+                        </select>
+
+                        <label data-aos="fade-left" style="margin-top: 1%">ملیت:</label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Nationality</option><option value="1" >Afghanistan</option><option value="2" >Albania</option><option value="3" >Algeria</option><option value="4" >American Samoa</option><option value="5" >Andorra</option><option value="6" >Angola</option><option value="7" >Anguilla</option><option value="8" >Antarctica</option><option value="9" >Antigua and Barbuda</option><option value="10" >Argentina</option><option value="11" >Armenia</option><option value="12" >Aruba</option><option value="13" >Australia</option><option value="14" >Austria</option><option value="15" >Azerbaijan</option><option value="16" >Bahamas</option><option value="17" >Bahrain</option><option value="18" >Bangladesh</option><option value="19" >Barbados</option><option value="20" >Belarus</option><option value="21" >Belgium</option><option value="22" >Belize</option><option value="23" >Benin</option><option value="24" >Bermuda</option><option value="25" >Bhutan</option><option value="26" >Bolivia</option><option value="27" >Bosnia Herzegowina</option><option value="28" >Botswana</option><option value="29" >Bouvet Island</option><option value="30" >Brazil</option><option value="31" >British Ind. Ocean</option><option value="32" >Brunei Darussalam</option><option value="33" >Bulgaria</option><option value="34" >Burkina Faso</option><option value="35" >Burundi</option><option value="36" >Cambodia</option><option value="37" >Cameroon</option><option value="38" >Canada</option><option value="39" >Cape Verde</option><option value="40" >Cayman Islands</option><option value="41" >Central African Rep.</option><option value="42" >Chad</option><option value="43" >Chile</option><option value="44" >China</option><option value="45" >Christmas Island</option><option value="46" >Cocoa (Keeling) Is.</option><option value="47" >Colombia</option><option value="48" >Comoros</option><option value="49" >Congo</option><option value="50" >Cook Islands</option><option value="51" >Costa Rica</option><option value="52" >Cote Divoire</option><option value="53" >Croatia</option><option value="54" >Cuba</option><option value="55" >Cyprus</option><option value="56" >Czech Republic</option><option value="57" >Denmark</option><option value="58" >Djibouti</option><option value="59" >Dominica</option><option value="60" >Dominican Republic</option><option value="61" >East Timor</option><option value="62" >Ecuador</option><option value="63" >Egypt</option><option value="64" >El Salvador</option><option value="65" >Equatorial Guinea</option><option value="66" >Eritrea</option><option value="67" >Estonia</option><option value="68" >Ethiopia</option><option value="69" >Falkland Islands</option><option value="70" >Faroe Islands</option><option value="71" >Fiji</option><option value="72" >Finland</option><option value="73" >France</option><option value="74" >Gabon</option><option value="75" >Gambia</option><option value="76" >Georgia</option><option value="77" >Germany</option><option value="78" >Ghana</option><option value="79" >Gibraltar</option><option value="80" >Greece</option><option value="81" >Greenland</option><option value="82" >Grenada</option><option value="83" >Guadeloupe</option><option value="84" >Guam</option><option value="85" >Guatemala</option><option value="86" >Guinea</option><option value="87" >Guinea-Bissau</option><option value="88" >Guyana</option><option value="89" >Haiti</option><option value="90" >Honduras</option><option value="91" >Hong Kong</option><option value="92" >Hungary</option><option value="93" >Iceland</option><option value="94" >India</option><option value="95" >Indonesia</option><option value="96" >Iran</option><option value="97" >Iraq</option><option value="98" >Ireland</option><option value="99" >Israel</option><option value="100" >Italy</option><option value="101" >Jamaica</option><option value="102" >Japan</option><option value="103" >Jordan</option><option value="104" >Kazakhstan</option><option value="105" >Kenya</option><option value="106" >Kiribati</option><option value="107" >Korea</option><option value="220" >Kosovo</option><option value="108" >Kuwait</option><option value="109" >Kyrgyzstan</option><option value="110" >Lao</option><option value="111" >Latvia</option><option value="112" >Lebanon</option><option value="113" >Lesotho</option><option value="114" >Liberia</option><option value="223" >Libya</option><option value="115" >Liechtenstein</option><option value="116" >Lithuania</option><option value="117" >Luxembourg</option><option value="118" >Macau</option><option value="119" >Macedonia</option><option value="120" >Madagascar</option><option value="121" >Malawi</option><option value="122" >Malaysia</option><option value="123" >Maldives</option><option value="124" >Mali</option><option value="125" >Malta</option><option value="126" >Marshall Islands</option><option value="127" >Martinique</option><option value="128" >Mauritania</option><option value="129" >Mauritius</option><option value="130" >Mayotte</option><option value="131" >Mexico</option><option value="132" >Micronesia</option><option value="133" >Moldova</option><option value="134" >Monaco</option><option value="135" >Mongolia</option><option value="224" >Montenegro</option><option value="136" >Montserrat</option><option value="137" >Morocco</option><option value="138" >Mozambique</option><option value="139" >Myanmar</option><option value="140" >Namibia</option><option value="141" >Nauru</option><option value="142" >Nepal</option><option value="143" >Netherlands</option><option value="144" >New Caledonia</option><option value="145" >New Zealand</option><option value="146" >Nicaragua</option><option value="147" >Niger</option><option value="148" >Nigeria</option><option value="149" >Niue</option><option value="150" >Norfolk Island</option><option value="151" >Norway</option><option value="152" >Oman</option><option value="153" >Pakistan</option><option value="154" >Palau</option><option value="222" >Palestin</option><option value="155" >Panama</option><option value="156" >Papua New Guinea</option><option value="157" >Paraguay</option><option value="158" >Peru</option><option value="159" >Philippines</option><option value="160" >Pitcairn</option><option value="161" >Poland</option><option value="162" >Portugal</option><option value="163" >Puerto Rico</option><option value="164" >Qatar</option><option value="165" >Reunion</option><option value="166" >Romania</option><option value="167" >Russia</option><option value="168" >Rwanda</option><option value="169" >Saint Lucia</option><option value="170" >Samoa</option><option value="171" >San Marino</option><option value="172" >Saudi Arabia</option><option value="173" >Senegal</option><option value="225" >Serbia</option><option value="174" >Seychelles</option><option value="175" >Sierra Leone</option><option value="176" >Singapore</option><option value="177" >Slovakia</option><option value="221" >Slovenia</option><option value="178" >Solomon Islands</option><option value="179" >Somalia</option><option value="180" >South Africa</option><option value="181" >Spain</option><option value="182" >Sri Lanka</option><option value="183" >St. Helena</option><option value="184" >Sudan</option><option value="185" >Suriname</option><option value="186" >Swaziland</option><option value="187" >Sweden</option><option value="188" >Switzerland</option><option value="189" >Syria</option><option value="190" >Taiwan</option><option value="191" >Tajikistan</option><option value="192" >Tanzania</option><option value="193" >Thailand</option><option value="194" >Togo</option><option value="195" >Tokelau</option><option value="196" >Tonga</option><option value="197" >Trinidad and Tobago</option><option value="198" >Tunisia</option><option value="199" >Turkey</option><option value="200" >Turkmenistan</option><option value="201" >Tuvalu</option><option value="202" >Uganda</option><option value="203" >Ukraine</option><option value="204" >United Arab Emirates</option><option value="205" >United Kingdom</option><option value="207" >Uruguay</option><option value="206" >USA</option><option value="208" >Uzbekistan</option><option value="209" >Vanuatu</option><option value="210" >Vatican</option><option value="211" >Venezuela</option><option value="212" >Viet Nam</option><option value="213" >Virgin Islands</option><option value="214" >Western Sahara</option><option value="215" >Yemen</option><option value="216" >Yugoslavia</option><option value="217" >Zaire</option><option value="218" >Zambia</option><option value="219" >Zimbabwe</option>
+                        </select>
+
+                        <label data-aos="fade-left" style="margin-top: 1%">کشور محل اقامت :</label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Country of Residency</option><option value="1" >Afghanistan</option><option value="2" >Albania</option><option value="3" >Algeria</option><option value="4" >American Samoa</option><option value="5" >Andorra</option><option value="6" >Angola</option><option value="7" >Anguilla</option><option value="8" >Antarctica</option><option value="9" >Antigua and Barbuda</option><option value="10" >Argentina</option><option value="11" >Armenia</option><option value="12" >Aruba</option><option value="13" >Australia</option><option value="14" >Austria</option><option value="15" >Azerbaijan</option><option value="16" >Bahamas</option><option value="17" >Bahrain</option><option value="18" >Bangladesh</option><option value="19" >Barbados</option><option value="20" >Belarus</option><option value="21" >Belgium</option><option value="22" >Belize</option><option value="23" >Benin</option><option value="24" >Bermuda</option><option value="25" >Bhutan</option><option value="26" >Bolivia</option><option value="27" >Bosnia Herzegowina</option><option value="28" >Botswana</option><option value="29" >Bouvet Island</option><option value="30" >Brazil</option><option value="31" >British Ind. Ocean</option><option value="32" >Brunei Darussalam</option><option value="33" >Bulgaria</option><option value="34" >Burkina Faso</option><option value="35" >Burundi</option><option value="36" >Cambodia</option><option value="37" >Cameroon</option><option value="38" >Canada</option><option value="39" >Cape Verde</option><option value="40" >Cayman Islands</option><option value="41" >Central African Rep.</option><option value="42" >Chad</option><option value="43" >Chile</option><option value="44" >China</option><option value="45" >Christmas Island</option><option value="46" >Cocoa (Keeling) Is.</option><option value="47" >Colombia</option><option value="48" >Comoros</option><option value="49" >Congo</option><option value="50" >Cook Islands</option><option value="51" >Costa Rica</option><option value="52" >Cote Divoire</option><option value="53" >Croatia</option><option value="54" >Cuba</option><option value="55" >Cyprus</option><option value="56" >Czech Republic</option><option value="57" >Denmark</option><option value="58" >Djibouti</option><option value="59" >Dominica</option><option value="60" >Dominican Republic</option><option value="61" >East Timor</option><option value="62" >Ecuador</option><option value="63" >Egypt</option><option value="64" >El Salvador</option><option value="65" >Equatorial Guinea</option><option value="66" >Eritrea</option><option value="67" >Estonia</option><option value="68" >Ethiopia</option><option value="69" >Falkland Islands</option><option value="70" >Faroe Islands</option><option value="71" >Fiji</option><option value="72" >Finland</option><option value="73" >France</option><option value="74" >Gabon</option><option value="75" >Gambia</option><option value="76" >Georgia</option><option value="77" >Germany</option><option value="78" >Ghana</option><option value="79" >Gibraltar</option><option value="80" >Greece</option><option value="81" >Greenland</option><option value="82" >Grenada</option><option value="83" >Guadeloupe</option><option value="84" >Guam</option><option value="85" >Guatemala</option><option value="86" >Guinea</option><option value="87" >Guinea-Bissau</option><option value="88" >Guyana</option><option value="89" >Haiti</option><option value="90" >Honduras</option><option value="91" >Hong Kong</option><option value="92" >Hungary</option><option value="93" >Iceland</option><option value="94" >India</option><option value="95" >Indonesia</option><option value="96" >Iran</option><option value="97" >Iraq</option><option value="98" >Ireland</option><option value="99" >Israel</option><option value="100" >Italy</option><option value="101" >Jamaica</option><option value="102" >Japan</option><option value="103" >Jordan</option><option value="104" >Kazakhstan</option><option value="105" >Kenya</option><option value="106" >Kiribati</option><option value="107" >Korea</option><option value="220" >Kosovo</option><option value="108" >Kuwait</option><option value="109" >Kyrgyzstan</option><option value="110" >Lao</option><option value="111" >Latvia</option><option value="112" >Lebanon</option><option value="113" >Lesotho</option><option value="114" >Liberia</option><option value="223" >Libya</option><option value="115" >Liechtenstein</option><option value="116" >Lithuania</option><option value="117" >Luxembourg</option><option value="118" >Macau</option><option value="119" >Macedonia</option><option value="120" >Madagascar</option><option value="121" >Malawi</option><option value="122" >Malaysia</option><option value="123" >Maldives</option><option value="124" >Mali</option><option value="125" >Malta</option><option value="126" >Marshall Islands</option><option value="127" >Martinique</option><option value="128" >Mauritania</option><option value="129" >Mauritius</option><option value="130" >Mayotte</option><option value="131" >Mexico</option><option value="132" >Micronesia</option><option value="133" >Moldova</option><option value="134" >Monaco</option><option value="135" >Mongolia</option><option value="224" >Montenegro</option><option value="136" >Montserrat</option><option value="137" >Morocco</option><option value="138" >Mozambique</option><option value="139" >Myanmar</option><option value="140" >Namibia</option><option value="141" >Nauru</option><option value="142" >Nepal</option><option value="143" >Netherlands</option><option value="144" >New Caledonia</option><option value="145" >New Zealand</option><option value="146" >Nicaragua</option><option value="147" >Niger</option><option value="148" >Nigeria</option><option value="149" >Niue</option><option value="150" >Norfolk Island</option><option value="151" >Norway</option><option value="152" >Oman</option><option value="153" >Pakistan</option><option value="154" >Palau</option><option value="222" >Palestin</option><option value="155" >Panama</option><option value="156" >Papua New Guinea</option><option value="157" >Paraguay</option><option value="158" >Peru</option><option value="159" >Philippines</option><option value="160" >Pitcairn</option><option value="161" >Poland</option><option value="162" >Portugal</option><option value="163" >Puerto Rico</option><option value="164" >Qatar</option><option value="165" >Reunion</option><option value="166" >Romania</option><option value="167" >Russia</option><option value="168" >Rwanda</option><option value="169" >Saint Lucia</option><option value="170" >Samoa</option><option value="171" >San Marino</option><option value="172" >Saudi Arabia</option><option value="173" >Senegal</option><option value="225" >Serbia</option><option value="174" >Seychelles</option><option value="175" >Sierra Leone</option><option value="176" >Singapore</option><option value="177" >Slovakia</option><option value="221" >Slovenia</option><option value="178" >Solomon Islands</option><option value="179" >Somalia</option><option value="180" >South Africa</option><option value="181" >Spain</option><option value="182" >Sri Lanka</option><option value="183" >St. Helena</option><option value="184" >Sudan</option><option value="185" >Suriname</option><option value="186" >Swaziland</option><option value="187" >Sweden</option><option value="188" >Switzerland</option><option value="189" >Syria</option><option value="190" >Taiwan</option><option value="191" >Tajikistan</option><option value="192" >Tanzania</option><option value="193" >Thailand</option><option value="194" >Togo</option><option value="195" >Tokelau</option><option value="196" >Tonga</option><option value="197" >Trinidad and Tobago</option><option value="198" >Tunisia</option><option value="199" >Turkey</option><option value="200" >Turkmenistan</option><option value="201" >Tuvalu</option><option value="202" >Uganda</option><option value="203" >Ukraine</option><option value="204" >United Arab Emirates</option><option value="205" >United Kingdom</option><option value="207" >Uruguay</option><option value="206" >USA</option><option value="208" >Uzbekistan</option><option value="209" >Vanuatu</option><option value="210" >Vatican</option><option value="211" >Venezuela</option><option value="212" >Viet Nam</option><option value="213" >Virgin Islands</option><option value="214" >Western Sahara</option><option value="215" >Yemen</option><option value="216" >Yugoslavia</option><option value="217" >Zaire</option><option value="218" >Zambia</option><option value="219" >Zimbabwe</option>
+                        </select>
+
+                        <label data-aos="fade-left" style="margin-top: 1%">شهر محل اقامت :</label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="City of Residency">
+
+                        <label data-aos="fade-left" style="margin-top: 1%">آدرس :</label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="Address">
+
+                        <label data-aos="fade-left" style="margin-top: 1%">کد پستی :</label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="Postal Code">
+
+                        <label data-aos="fade-left" style="margin-top: 1%">تلفن تماس :</label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="Telephone Number">
+
+                        <label data-aos="fade-left" style="margin-top: 1%">تلفن همراه :</label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="Mobile Number">
+
+                        <label data-aos="fade-left" style="margin-top: 1%"> ایمیل: </label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="email" placeholder="Email Address">
+
+                        <label data-aos="fade-left" style="margin-top: 1%">تکرار ایمیل :</label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="email" placeholder="Re_Type Email Address">
+                        <hr>
+                        <p data-aos="fade-right" style="margin-top: 3%"  class="text-center bg-success font-weight-bold">تحصیلات</p>
+
+                        <label data-aos="fade-left" style="margin-top: 1%"> آخرین مدرک تحصیلی :  </label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Latest Academic Qualification</option><option value="English Language Bridging (ELB)">English Language Bridging (ELB)</option><option value="ELICOS &#47; English for Academic Purposes (EAP)">ELICOS &#47; English for Academic Purposes (EAP)</option><option value="English Language">English Language</option><option value="Primary School">Primary School</option><option value="Secondary School">Secondary School</option><option value="High School Certificate">High School Certificate</option><option value="Foundation&#47;Pre-University&#47;College">Foundation&#47;Pre-University&#47;College</option><option value="A Level Course">A Level Course</option><option value="Diploma">Diploma</option><option value="Advanced Diploma">Advanced Diploma</option><option value="Associate Degree">Associate Degree</option><option value="Pilot Training ">Pilot Training </option><option value="Bachelor&#39;s Degree">Bachelor&#39;s Degree</option><option value="Graduate Certificate">Graduate Certificate</option><option value="Graduate Diploma">Graduate Diploma</option><option value="Pre-Master Program">Pre-Master Program</option><option value="Master&#39;s Degree">Master&#39;s Degree</option><option value="Master By Research">Master By Research</option><option value="Juris Doctor ( Law Graduate Entry)">Juris Doctor ( Law Graduate Entry)</option><option value="PhD Degree">PhD Degree</option><option value="Medicine">Medicine</option><option value="Dentistry">Dentistry</option><option value="Pharmacy">Pharmacy</option><option value="other">Other - (Please Insert Details at the end of this form)</option>
+                        </select>
+
+                        <label data-aos="fade-left" style="margin-top: 1%"> در رشته :  </label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Field Of Study</option><option value="Arts">Arts</option><option value="Biological Sciences">Biological Sciences</option><option value="Business and Management">Business and Management</option><option value="Education">Education</option><option value="Engineering (includes the School of Computing)">Engineering (includes the School of Computing)</option><option value="English Language Intensive Courses for Overseas Students">English Language Intensive Courses for Overseas Students</option><option value="Environment">Environment</option><option value="Foundation Studies">Foundation Studies</option><option value="Humanities">Humanities</option><option value="Information Technology">Information Technology</option><option value="Law">Law</option><option value="Mathematics and Physical Sciences">Mathematics and Physical Sciences</option><option value="Medicine and Health">Medicine and Health</option><option value="Not Applicable">Not Applicable</option><option value="Other faculty (not elsewhere classified)">Other faculty (not elsewhere classified)</option><option value="Performance, Visual Arts and Communications">Performance, Visual Arts and Communications</option><option value="Science">Science</option><option value="Social Sciences">Social Sciences</option><option value="other">Other - (Please Insert Details at the end of this form)</option>
+                        </select>
+
+                        <label data-aos="fade-left" style="margin-top: 1%"> کشور محل تحصیل:  </label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Country</option><option value="1" >Afghanistan</option><option value="2" >Albania</option><option value="3" >Algeria</option><option value="4" >American Samoa</option><option value="5" >Andorra</option><option value="6" >Angola</option><option value="7" >Anguilla</option><option value="8" >Antarctica</option><option value="9" >Antigua and Barbuda</option><option value="10" >Argentina</option><option value="11" >Armenia</option><option value="12" >Aruba</option><option value="13" >Australia</option><option value="14" >Austria</option><option value="15" >Azerbaijan</option><option value="16" >Bahamas</option><option value="17" >Bahrain</option><option value="18" >Bangladesh</option><option value="19" >Barbados</option><option value="20" >Belarus</option><option value="21" >Belgium</option><option value="22" >Belize</option><option value="23" >Benin</option><option value="24" >Bermuda</option><option value="25" >Bhutan</option><option value="26" >Bolivia</option><option value="27" >Bosnia Herzegowina</option><option value="28" >Botswana</option><option value="29" >Bouvet Island</option><option value="30" >Brazil</option><option value="31" >British Ind. Ocean</option><option value="32" >Brunei Darussalam</option><option value="33" >Bulgaria</option><option value="34" >Burkina Faso</option><option value="35" >Burundi</option><option value="36" >Cambodia</option><option value="37" >Cameroon</option><option value="38" >Canada</option><option value="39" >Cape Verde</option><option value="40" >Cayman Islands</option><option value="41" >Central African Rep.</option><option value="42" >Chad</option><option value="43" >Chile</option><option value="44" >China</option><option value="45" >Christmas Island</option><option value="46" >Cocoa (Keeling) Is.</option><option value="47" >Colombia</option><option value="48" >Comoros</option><option value="49" >Congo</option><option value="50" >Cook Islands</option><option value="51" >Costa Rica</option><option value="52" >Cote Divoire</option><option value="53" >Croatia</option><option value="54" >Cuba</option><option value="55" >Cyprus</option><option value="56" >Czech Republic</option><option value="57" >Denmark</option><option value="58" >Djibouti</option><option value="59" >Dominica</option><option value="60" >Dominican Republic</option><option value="61" >East Timor</option><option value="62" >Ecuador</option><option value="63" >Egypt</option><option value="64" >El Salvador</option><option value="65" >Equatorial Guinea</option><option value="66" >Eritrea</option><option value="67" >Estonia</option><option value="68" >Ethiopia</option><option value="69" >Falkland Islands</option><option value="70" >Faroe Islands</option><option value="71" >Fiji</option><option value="72" >Finland</option><option value="73" >France</option><option value="74" >Gabon</option><option value="75" >Gambia</option><option value="76" >Georgia</option><option value="77" >Germany</option><option value="78" >Ghana</option><option value="79" >Gibraltar</option><option value="80" >Greece</option><option value="81" >Greenland</option><option value="82" >Grenada</option><option value="83" >Guadeloupe</option><option value="84" >Guam</option><option value="85" >Guatemala</option><option value="86" >Guinea</option><option value="87" >Guinea-Bissau</option><option value="88" >Guyana</option><option value="89" >Haiti</option><option value="90" >Honduras</option><option value="91" >Hong Kong</option><option value="92" >Hungary</option><option value="93" >Iceland</option><option value="94" >India</option><option value="95" >Indonesia</option><option value="96" >Iran</option><option value="97" >Iraq</option><option value="98" >Ireland</option><option value="99" >Israel</option><option value="100" >Italy</option><option value="101" >Jamaica</option><option value="102" >Japan</option><option value="103" >Jordan</option><option value="104" >Kazakhstan</option><option value="105" >Kenya</option><option value="106" >Kiribati</option><option value="107" >Korea</option><option value="220" >Kosovo</option><option value="108" >Kuwait</option><option value="109" >Kyrgyzstan</option><option value="110" >Lao</option><option value="111" >Latvia</option><option value="112" >Lebanon</option><option value="113" >Lesotho</option><option value="114" >Liberia</option><option value="223" >Libya</option><option value="115" >Liechtenstein</option><option value="116" >Lithuania</option><option value="117" >Luxembourg</option><option value="118" >Macau</option><option value="119" >Macedonia</option><option value="120" >Madagascar</option><option value="121" >Malawi</option><option value="122" >Malaysia</option><option value="123" >Maldives</option><option value="124" >Mali</option><option value="125" >Malta</option><option value="126" >Marshall Islands</option><option value="127" >Martinique</option><option value="128" >Mauritania</option><option value="129" >Mauritius</option><option value="130" >Mayotte</option><option value="131" >Mexico</option><option value="132" >Micronesia</option><option value="133" >Moldova</option><option value="134" >Monaco</option><option value="135" >Mongolia</option><option value="224" >Montenegro</option><option value="136" >Montserrat</option><option value="137" >Morocco</option><option value="138" >Mozambique</option><option value="139" >Myanmar</option><option value="140" >Namibia</option><option value="141" >Nauru</option><option value="142" >Nepal</option><option value="143" >Netherlands</option><option value="144" >New Caledonia</option><option value="145" >New Zealand</option><option value="146" >Nicaragua</option><option value="147" >Niger</option><option value="148" >Nigeria</option><option value="149" >Niue</option><option value="150" >Norfolk Island</option><option value="151" >Norway</option><option value="152" >Oman</option><option value="153" >Pakistan</option><option value="154" >Palau</option><option value="222" >Palestin</option><option value="155" >Panama</option><option value="156" >Papua New Guinea</option><option value="157" >Paraguay</option><option value="158" >Peru</option><option value="159" >Philippines</option><option value="160" >Pitcairn</option><option value="161" >Poland</option><option value="162" >Portugal</option><option value="163" >Puerto Rico</option><option value="164" >Qatar</option><option value="165" >Reunion</option><option value="166" >Romania</option><option value="167" >Russia</option><option value="168" >Rwanda</option><option value="169" >Saint Lucia</option><option value="170" >Samoa</option><option value="171" >San Marino</option><option value="172" >Saudi Arabia</option><option value="173" >Senegal</option><option value="225" >Serbia</option><option value="174" >Seychelles</option><option value="175" >Sierra Leone</option><option value="176" >Singapore</option><option value="177" >Slovakia</option><option value="221" >Slovenia</option><option value="178" >Solomon Islands</option><option value="179" >Somalia</option><option value="180" >South Africa</option><option value="181" >Spain</option><option value="182" >Sri Lanka</option><option value="183" >St. Helena</option><option value="184" >Sudan</option><option value="185" >Suriname</option><option value="186" >Swaziland</option><option value="187" >Sweden</option><option value="188" >Switzerland</option><option value="189" >Syria</option><option value="190" >Taiwan</option><option value="191" >Tajikistan</option><option value="192" >Tanzania</option><option value="193" >Thailand</option><option value="194" >Togo</option><option value="195" >Tokelau</option><option value="196" >Tonga</option><option value="197" >Trinidad and Tobago</option><option value="198" >Tunisia</option><option value="199" >Turkey</option><option value="200" >Turkmenistan</option><option value="201" >Tuvalu</option><option value="202" >Uganda</option><option value="203" >Ukraine</option><option value="204" >United Arab Emirates</option><option value="205" >United Kingdom</option><option value="207" >Uruguay</option><option value="206" >USA</option><option value="208" >Uzbekistan</option><option value="209" >Vanuatu</option><option value="210" >Vatican</option><option value="211" >Venezuela</option><option value="212" >Viet Nam</option><option value="213" >Virgin Islands</option><option value="214" >Western Sahara</option><option value="215" >Yemen</option><option value="216" >Yugoslavia</option><option value="217" >Zaire</option><option value="218" >Zambia</option><option value="219" >Zimbabwe</option>
+                        </select>
+
+
+                        <label data-aos="fade-left" style="margin-top: 1%">معدل کتبی از ۲۰ :</label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="GPA">
+
+
+
+                        <label data-aos="fade-left" style="margin-top: 1%">سال اخذ مدرک :</label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="Year Awarded">
+
+
+
+                        <label data-aos="fade-left" style="margin-top: 1%">از دانشگاه یامرکز آموزشی :</label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="Institution">
+
+
+
+                        <label data-aos="fade-left" style="margin-top: 1%">  ديگر مدارك تحصیلی اخذ شده: </label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Other Qualification Awarded</option><option value="English Language Bridging (ELB)">English Language Bridging (ELB)</option><option value="ELICOS &#47; English for Academic Purposes (EAP)">ELICOS &#47; English for Academic Purposes (EAP)</option><option value="English Language">English Language</option><option value="Primary School">Primary School</option><option value="Secondary School">Secondary School</option><option value="High School Certificate">High School Certificate</option><option value="Foundation&#47;Pre-University&#47;College">Foundation&#47;Pre-University&#47;College</option><option value="A Level Course">A Level Course</option><option value="Diploma">Diploma</option><option value="Advanced Diploma">Advanced Diploma</option><option value="Associate Degree">Associate Degree</option><option value="Pilot Training ">Pilot Training </option><option value="Bachelor&#39;s Degree">Bachelor&#39;s Degree</option><option value="Graduate Certificate">Graduate Certificate</option><option value="Graduate Diploma">Graduate Diploma</option><option value="Pre-Master Program">Pre-Master Program</option><option value="Master&#39;s Degree">Master&#39;s Degree</option><option value="Master By Research">Master By Research</option><option value="Juris Doctor ( Law Graduate Entry)">Juris Doctor ( Law Graduate Entry)</option><option value="PhD Degree">PhD Degree</option><option value="Medicine">Medicine</option><option value="Dentistry">Dentistry</option><option value="Pharmacy">Pharmacy</option><option value="other">Other - (Please Insert Details at the end of this form)</option>
+                        </select>
+
+                        <label data-aos="fade-left" style="margin-top: 1%"> در رشته :  </label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Field Of Study</option><option value="Arts">Arts</option><option value="Biological Sciences">Biological Sciences</option><option value="Business and Management">Business and Management</option><option value="Education">Education</option><option value="Engineering (includes the School of Computing)">Engineering (includes the School of Computing)</option><option value="English Language Intensive Courses for Overseas Students">English Language Intensive Courses for Overseas Students</option><option value="Environment">Environment</option><option value="Foundation Studies">Foundation Studies</option><option value="Humanities">Humanities</option><option value="Information Technology">Information Technology</option><option value="Law">Law</option><option value="Mathematics and Physical Sciences">Mathematics and Physical Sciences</option><option value="Medicine and Health">Medicine and Health</option><option value="Not Applicable">Not Applicable</option><option value="Other faculty (not elsewhere classified)">Other faculty (not elsewhere classified)</option><option value="Performance, Visual Arts and Communications">Performance, Visual Arts and Communications</option><option value="Science">Science</option><option value="Social Sciences">Social Sciences</option><option value="other">Other - (Please Insert Details at the end of this form)</option>
+                        </select>
+
+                        <label data-aos="fade-left" style="margin-top: 1%"> کشور محل تحصیل:  </label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Country</option><option value="1" >Afghanistan</option><option value="2" >Albania</option><option value="3" >Algeria</option><option value="4" >American Samoa</option><option value="5" >Andorra</option><option value="6" >Angola</option><option value="7" >Anguilla</option><option value="8" >Antarctica</option><option value="9" >Antigua and Barbuda</option><option value="10" >Argentina</option><option value="11" >Armenia</option><option value="12" >Aruba</option><option value="13" >Australia</option><option value="14" >Austria</option><option value="15" >Azerbaijan</option><option value="16" >Bahamas</option><option value="17" >Bahrain</option><option value="18" >Bangladesh</option><option value="19" >Barbados</option><option value="20" >Belarus</option><option value="21" >Belgium</option><option value="22" >Belize</option><option value="23" >Benin</option><option value="24" >Bermuda</option><option value="25" >Bhutan</option><option value="26" >Bolivia</option><option value="27" >Bosnia Herzegowina</option><option value="28" >Botswana</option><option value="29" >Bouvet Island</option><option value="30" >Brazil</option><option value="31" >British Ind. Ocean</option><option value="32" >Brunei Darussalam</option><option value="33" >Bulgaria</option><option value="34" >Burkina Faso</option><option value="35" >Burundi</option><option value="36" >Cambodia</option><option value="37" >Cameroon</option><option value="38" >Canada</option><option value="39" >Cape Verde</option><option value="40" >Cayman Islands</option><option value="41" >Central African Rep.</option><option value="42" >Chad</option><option value="43" >Chile</option><option value="44" >China</option><option value="45" >Christmas Island</option><option value="46" >Cocoa (Keeling) Is.</option><option value="47" >Colombia</option><option value="48" >Comoros</option><option value="49" >Congo</option><option value="50" >Cook Islands</option><option value="51" >Costa Rica</option><option value="52" >Cote Divoire</option><option value="53" >Croatia</option><option value="54" >Cuba</option><option value="55" >Cyprus</option><option value="56" >Czech Republic</option><option value="57" >Denmark</option><option value="58" >Djibouti</option><option value="59" >Dominica</option><option value="60" >Dominican Republic</option><option value="61" >East Timor</option><option value="62" >Ecuador</option><option value="63" >Egypt</option><option value="64" >El Salvador</option><option value="65" >Equatorial Guinea</option><option value="66" >Eritrea</option><option value="67" >Estonia</option><option value="68" >Ethiopia</option><option value="69" >Falkland Islands</option><option value="70" >Faroe Islands</option><option value="71" >Fiji</option><option value="72" >Finland</option><option value="73" >France</option><option value="74" >Gabon</option><option value="75" >Gambia</option><option value="76" >Georgia</option><option value="77" >Germany</option><option value="78" >Ghana</option><option value="79" >Gibraltar</option><option value="80" >Greece</option><option value="81" >Greenland</option><option value="82" >Grenada</option><option value="83" >Guadeloupe</option><option value="84" >Guam</option><option value="85" >Guatemala</option><option value="86" >Guinea</option><option value="87" >Guinea-Bissau</option><option value="88" >Guyana</option><option value="89" >Haiti</option><option value="90" >Honduras</option><option value="91" >Hong Kong</option><option value="92" >Hungary</option><option value="93" >Iceland</option><option value="94" >India</option><option value="95" >Indonesia</option><option value="96" >Iran</option><option value="97" >Iraq</option><option value="98" >Ireland</option><option value="99" >Israel</option><option value="100" >Italy</option><option value="101" >Jamaica</option><option value="102" >Japan</option><option value="103" >Jordan</option><option value="104" >Kazakhstan</option><option value="105" >Kenya</option><option value="106" >Kiribati</option><option value="107" >Korea</option><option value="220" >Kosovo</option><option value="108" >Kuwait</option><option value="109" >Kyrgyzstan</option><option value="110" >Lao</option><option value="111" >Latvia</option><option value="112" >Lebanon</option><option value="113" >Lesotho</option><option value="114" >Liberia</option><option value="223" >Libya</option><option value="115" >Liechtenstein</option><option value="116" >Lithuania</option><option value="117" >Luxembourg</option><option value="118" >Macau</option><option value="119" >Macedonia</option><option value="120" >Madagascar</option><option value="121" >Malawi</option><option value="122" >Malaysia</option><option value="123" >Maldives</option><option value="124" >Mali</option><option value="125" >Malta</option><option value="126" >Marshall Islands</option><option value="127" >Martinique</option><option value="128" >Mauritania</option><option value="129" >Mauritius</option><option value="130" >Mayotte</option><option value="131" >Mexico</option><option value="132" >Micronesia</option><option value="133" >Moldova</option><option value="134" >Monaco</option><option value="135" >Mongolia</option><option value="224" >Montenegro</option><option value="136" >Montserrat</option><option value="137" >Morocco</option><option value="138" >Mozambique</option><option value="139" >Myanmar</option><option value="140" >Namibia</option><option value="141" >Nauru</option><option value="142" >Nepal</option><option value="143" >Netherlands</option><option value="144" >New Caledonia</option><option value="145" >New Zealand</option><option value="146" >Nicaragua</option><option value="147" >Niger</option><option value="148" >Nigeria</option><option value="149" >Niue</option><option value="150" >Norfolk Island</option><option value="151" >Norway</option><option value="152" >Oman</option><option value="153" >Pakistan</option><option value="154" >Palau</option><option value="222" >Palestin</option><option value="155" >Panama</option><option value="156" >Papua New Guinea</option><option value="157" >Paraguay</option><option value="158" >Peru</option><option value="159" >Philippines</option><option value="160" >Pitcairn</option><option value="161" >Poland</option><option value="162" >Portugal</option><option value="163" >Puerto Rico</option><option value="164" >Qatar</option><option value="165" >Reunion</option><option value="166" >Romania</option><option value="167" >Russia</option><option value="168" >Rwanda</option><option value="169" >Saint Lucia</option><option value="170" >Samoa</option><option value="171" >San Marino</option><option value="172" >Saudi Arabia</option><option value="173" >Senegal</option><option value="225" >Serbia</option><option value="174" >Seychelles</option><option value="175" >Sierra Leone</option><option value="176" >Singapore</option><option value="177" >Slovakia</option><option value="221" >Slovenia</option><option value="178" >Solomon Islands</option><option value="179" >Somalia</option><option value="180" >South Africa</option><option value="181" >Spain</option><option value="182" >Sri Lanka</option><option value="183" >St. Helena</option><option value="184" >Sudan</option><option value="185" >Suriname</option><option value="186" >Swaziland</option><option value="187" >Sweden</option><option value="188" >Switzerland</option><option value="189" >Syria</option><option value="190" >Taiwan</option><option value="191" >Tajikistan</option><option value="192" >Tanzania</option><option value="193" >Thailand</option><option value="194" >Togo</option><option value="195" >Tokelau</option><option value="196" >Tonga</option><option value="197" >Trinidad and Tobago</option><option value="198" >Tunisia</option><option value="199" >Turkey</option><option value="200" >Turkmenistan</option><option value="201" >Tuvalu</option><option value="202" >Uganda</option><option value="203" >Ukraine</option><option value="204" >United Arab Emirates</option><option value="205" >United Kingdom</option><option value="207" >Uruguay</option><option value="206" >USA</option><option value="208" >Uzbekistan</option><option value="209" >Vanuatu</option><option value="210" >Vatican</option><option value="211" >Venezuela</option><option value="212" >Viet Nam</option><option value="213" >Virgin Islands</option><option value="214" >Western Sahara</option><option value="215" >Yemen</option><option value="216" >Yugoslavia</option><option value="217" >Zaire</option><option value="218" >Zambia</option><option value="219" >Zimbabwe</option>
+                        </select>
+
+
+                        <label data-aos="fade-left" style="margin-top: 1%">معدل کتبی از ۲۰ :</label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="GPA">
+
+
+
+                        <label data-aos="fade-left" style="margin-top: 1%">سال اخذ مدرک :</label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="Year Awarded">
+
+
+
+                        <label data-aos="fade-left" style="margin-top: 1%">از دانشگاه یامرکز آموزشی :</label>
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="Institution">
+                        <hr>
+                        <p data-aos="fade-right" style="margin-top: 3%" class="text-center bg-danger font-weight-bold">زبان انگلیسی</p>
+
+                        <label data-aos="fade-left" style="margin-top: 1%"> مدرک زبان انگلیسی :  </label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Language Certificate</option><option value="Real score" >نمره کسب شده</option><option value="Estimated score" >تخمین نمره احتمالی</option>
+                        </select>
+                        <p data-aos="fade-left"> لطفا در صورت دارا بودن هر یک از مدارک نمره را وارد کنید و در غیر این صورت نمره تخمینی یکی از مدارک را درج نمایید</p>
+                        <br>
+                        <br>
+                        <label data-aos="fade-left" style="margin-top: 1%;color: red  " class=" font-weight-bold"> IELTS  </label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Listening</option><option value="1.0">1.0</option><option value="1.5">1.5</option><option value="2.0">2.0</option><option value="2.5">2.5</option><option value="3.0">3.0</option><option value="3.5">3.5</option><option value="4.0">4.0</option><option value="4.5">4.5</option><option value="5.0">5.0</option><option value="5.5">5.5</option><option value="6.0">6.0</option><option value="6.5">6.5</option><option value="7.0">7.0</option><option value="7.5">7.5</option><option value="8.0">8.0</option><option value="8.5">8.5</option><option value="9.0">9.0</option>
+                        </select>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Reading</option><option value="1.0">1.0</option><option value="1.5">1.5</option><option value="2.0">2.0</option><option value="2.5">2.5</option><option value="3.0">3.0</option><option value="3.5">3.5</option><option value="4.0">4.0</option><option value="4.5">4.5</option><option value="5.0">5.0</option><option value="5.5">5.5</option><option value="6.0">6.0</option><option value="6.5">6.5</option><option value="7.0">7.0</option><option value="7.5">7.5</option><option value="8.0">8.0</option><option value="8.5">8.5</option><option value="9.0">9.0</option>
+                        </select>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Writing</option><option value="1.0">1.0</option><option value="1.5">1.5</option><option value="2.0">2.0</option><option value="2.5">2.5</option><option value="3.0">3.0</option><option value="3.5">3.5</option><option value="4.0">4.0</option><option value="4.5">4.5</option><option value="5.0">5.0</option><option value="5.5">5.5</option><option value="6.0">6.0</option><option value="6.5">6.5</option><option value="7.0">7.0</option><option value="7.5">7.5</option><option value="8.0">8.0</option><option value="8.5">8.5</option><option value="9.0">9.0</option>
+                        </select>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Speaking</option><option value="1.0">1.0</option><option value="1.5">1.5</option><option value="2.0">2.0</option><option value="2.5">2.5</option><option value="3.0">3.0</option><option value="3.5">3.5</option><option value="4.0">4.0</option><option value="4.5">4.5</option><option value="5.0">5.0</option><option value="5.5">5.5</option><option value="6.0">6.0</option><option value="6.5">6.5</option><option value="7.0">7.0</option><option value="7.5">7.5</option><option value="8.0">8.0</option><option value="8.5">8.5</option><option value="9.0">9.0</option>
+                        </select>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Overall Band</option><option value="1.0">1.0</option><option value="1.5">1.5</option><option value="2.0">2.0</option><option value="2.5">2.5</option><option value="3.0">3.0</option><option value="3.5">3.5</option><option value="4.0">4.0</option><option value="4.5">4.5</option><option value="5.0">5.0</option><option value="5.5">5.5</option><option value="6.0">6.0</option><option value="6.5">6.5</option><option value="7.0">7.0</option><option value="7.5">7.5</option><option value="8.0">8.0</option><option value="8.5">8.5</option><option value="9.0">9.0</option>
+                        </select>
+
+                        <br>
+                        <br>
+                        <label data-aos="fade-left" style="margin-top: 1%;color: blue  " class=" font-weight-bold"> TOFEL IBT  </label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Listening</option><option value="1.0">1.0</option><option value="1.5">1.5</option><option value="2.0">2.0</option><option value="2.5">2.5</option><option value="3.0">3.0</option><option value="3.5">3.5</option><option value="4.0">4.0</option><option value="4.5">4.5</option><option value="5.0">5.0</option><option value="5.5">5.5</option><option value="6.0">6.0</option><option value="6.5">6.5</option><option value="7.0">7.0</option><option value="7.5">7.5</option><option value="8.0">8.0</option><option value="8.5">8.5</option><option value="9.0">9.0</option>
+                        </select>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Reading</option><option value="1.0">1.0</option><option value="1.5">1.5</option><option value="2.0">2.0</option><option value="2.5">2.5</option><option value="3.0">3.0</option><option value="3.5">3.5</option><option value="4.0">4.0</option><option value="4.5">4.5</option><option value="5.0">5.0</option><option value="5.5">5.5</option><option value="6.0">6.0</option><option value="6.5">6.5</option><option value="7.0">7.0</option><option value="7.5">7.5</option><option value="8.0">8.0</option><option value="8.5">8.5</option><option value="9.0">9.0</option>
+                        </select>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Writing</option><option value="1.0">1.0</option><option value="1.5">1.5</option><option value="2.0">2.0</option><option value="2.5">2.5</option><option value="3.0">3.0</option><option value="3.5">3.5</option><option value="4.0">4.0</option><option value="4.5">4.5</option><option value="5.0">5.0</option><option value="5.5">5.5</option><option value="6.0">6.0</option><option value="6.5">6.5</option><option value="7.0">7.0</option><option value="7.5">7.5</option><option value="8.0">8.0</option><option value="8.5">8.5</option><option value="9.0">9.0</option>
+                        </select>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Speaking</option><option value="1.0">1.0</option><option value="1.5">1.5</option><option value="2.0">2.0</option><option value="2.5">2.5</option><option value="3.0">3.0</option><option value="3.5">3.5</option><option value="4.0">4.0</option><option value="4.5">4.5</option><option value="5.0">5.0</option><option value="5.5">5.5</option><option value="6.0">6.0</option><option value="6.5">6.5</option><option value="7.0">7.0</option><option value="7.5">7.5</option><option value="8.0">8.0</option><option value="8.5">8.5</option><option value="9.0">9.0</option>
+                        </select>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Overall Band</option><option value="1.0">1.0</option><option value="1.5">1.5</option><option value="2.0">2.0</option><option value="2.5">2.5</option><option value="3.0">3.0</option><option value="3.5">3.5</option><option value="4.0">4.0</option><option value="4.5">4.5</option><option value="5.0">5.0</option><option value="5.5">5.5</option><option value="6.0">6.0</option><option value="6.5">6.5</option><option value="7.0">7.0</option><option value="7.5">7.5</option><option value="8.0">8.0</option><option value="8.5">8.5</option><option value="9.0">9.0</option>
+                        </select>
+
+
+                        <br>
+                        <br>
+                        <label data-aos="fade-left" style="margin-top: 1%;color:deepskyblue  " class=" font-weight-bold">GMAT  </label>
+
+                        <div class="row text-left" >
+
+                            <div class="col-3 d-flex d-inline">
+                                <select data-aos="fade-right" class="form-control text-left" dir="ltr" >
+                                    <option value="">Day</option>
+                                    <option value="1" >1</option>
+                                    <option value="2" >2</option>
+                                    <option value="3" >3</option>
+                                    <option value="4" >4</option>
+                                    <option value="5" >5</option>
+                                    <option value="6" >6</option>
+                                    <option value="7" >7</option>
+                                    <option value="8" >8</option>
+                                    <option value="9" >9</option>
+                                    <option value="10" >10</option>
+                                    <option value="11" >11</option>
+                                    <option value="12" >12</option>
+                                    <option value="13" >13</option>
+                                    <option value="14" >14</option>
+                                    <option value="15" >15</option>
+                                    <option value="16" >16</option>
+                                    <option value="17" >17</option>
+                                    <option value="18" >18</option>
+                                    <option value="19" >19</option>
+                                    <option value="20" >20</option>
+                                    <option value="21" >21</option>
+                                    <option value="22" >22</option>
+                                    <option value="23" >23</option>
+                                    <option value="24" >24</option>
+                                    <option value="25" >25</option>
+                                    <option value="26" >26</option>
+                                    <option value="27" >27</option>
+                                    <option value="28" >28</option>
+                                    <option value="29" >29</option>
+                                    <option value="30" >30</option>
+                                    <option value="31" >31</option></select>
+                            </div>
+                            <div class="col-3 d-flex d-inline">
+                                <select data-aos="fade-right" class="form-control text-left" dir="ltr">
+                                    <option value="">Month</option>
+                                    <option value="1" >1 - Jan</option>
+                                    <option value="2" >2 - Feb</option>
+                                    <option value="3" >3 - Mar</option>
+                                    <option value="4" >4 - Apr</option>
+                                    <option value="5" >5 - May</option>
+                                    <option value="6" >6 - Jun</option>
+                                    <option value="7" >7 - Jul</option>
+                                    <option value="8" >8 - Aug</option>
+                                    <option value="9" >9 - Sep</option>
+                                    <option value="10" >10 - Oct</option>
+                                    <option value="11" >11 - Nov</option>
+                                    <option value="12" >12 - Dec</option></select>
+                            </div>
+                            <div class="col-3 d-flex d-inline">
+                                <select data-aos="fade-right" class="form-control text-left" dir="ltr">
+                                    <option value="">Year</option>
+                                    <option value="1940" >1940</option>
+                                    <option value="1941" >1941</option>
+                                    <option value="1942" >1942</option>
+                                    <option value="1943" >1943</option>
+                                    <option value="1944" >1944</option>
+                                    <option value="1945" >1945</option>
+                                    <option value="1946" >1946</option>
+                                    <option value="1947" >1947</option>
+                                    <option value="1948" >1948</option>
+                                    <option value="1949" >1949</option>
+                                    <option value="1950" >1950</option>
+                                    <option value="1951" >1951</option>
+                                    <option value="1952" >1952</option>
+                                    <option value="1953" >1953</option>
+                                    <option value="1954" >1954</option>
+                                    <option value="1955" >1955</option>
+                                    <option value="1956" >1956</option>
+                                    <option value="1957" >1957</option>
+                                    <option value="1958" >1958</option>
+                                    <option value="1959" >1959</option>
+                                    <option value="1960" >1960</option>
+                                    <option value="1961" >1961</option>
+                                    <option value="1962" >1962</option>
+                                    <option value="1963" >1963</option>
+                                    <option value="1964" >1964</option>
+                                    <option value="1965" >1965</option>
+                                    <option value="1966" >1966</option>
+                                    <option value="1967" >1967</option>
+                                    <option value="1968" >1968</option>
+                                    <option value="1969" >1969</option>
+                                    <option value="1970" >1970</option>
+                                    <option value="1971" >1971</option>
+                                    <option value="1972" >1972</option>
+                                    <option value="1973" >1973</option>
+                                    <option value="1974" >1974</option>
+                                    <option value="1975" >1975</option>
+                                    <option value="1976" >1976</option>
+                                    <option value="1977" >1977</option>
+                                    <option value="1978" >1978</option>
+                                    <option value="1979" >1979</option>
+                                    <option value="1980" >1980</option>
+                                    <option value="1981" >1981</option>
+                                    <option value="1982" >1982</option>
+                                    <option value="1983" >1983</option>
+                                    <option value="1984" >1984</option>
+                                    <option value="1985" >1985</option>
+                                    <option value="1986" >1986</option>
+                                    <option value="1987" >1987</option>
+                                    <option value="1988" >1988</option>
+                                    <option value="1989" >1989</option>
+                                    <option value="1990" >1990</option>
+                                    <option value="1991" >1991</option>
+                                    <option value="1992" >1992</option>
+                                    <option value="1993" >1993</option>
+                                    <option value="1994" >1994</option>
+                                    <option value="1995" >1995</option>
+                                    <option value="1996" >1996</option>
+                                    <option value="1997" >1997</option>
+                                    <option value="1998" >1998</option>
+                                    <option value="1999" >1999</option>
+                                    <option value="2000" >2000</option>
+                                    <option value="2001" >2001</option>
+                                    <option value="2002" >2002</option>
+                                    <option value="2003" >2003</option>
+                                    <option value="2004" >2004</option>
+                                    <option value="2005" >2005</option>
+                                    <option value="2006" >2006</option>
+                                    <option value="2007" >2007</option>
+                                    <option value="2008" >2008</option>
+                                    <option value="2009" >2009</option>
+                                    <option value="2010" >2010</option>
+                                    <option value="2011" >2011</option>
+                                    <option value="2012" >2012</option></select>
+                            </div>
+                            <div class="col-2"><label data-aos="fade-left" style="margin-top: 1%;font-size: 13px " class=" font-weight-bold">:Test Date </label></div>
+                        </div>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Verbal</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option><option value="60">60</option>
+                        </select>
+
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Quantitative</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option><option value="60">60</option>
+                        </select>
+
+
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Total</option><option value="200">200</option><option value="201">201</option><option value="202">202</option><option value="203">203</option><option value="204">204</option><option value="205">205</option><option value="206">206</option><option value="207">207</option><option value="208">208</option><option value="209">209</option><option value="210">210</option><option value="211">211</option><option value="212">212</option><option value="213">213</option><option value="214">214</option><option value="215">215</option><option value="216">216</option><option value="217">217</option><option value="218">218</option><option value="219">219</option><option value="220">220</option><option value="221">221</option><option value="222">222</option><option value="223">223</option><option value="224">224</option><option value="225">225</option><option value="226">226</option><option value="227">227</option><option value="228">228</option><option value="229">229</option><option value="230">230</option><option value="231">231</option><option value="232">232</option><option value="233">233</option><option value="234">234</option><option value="235">235</option><option value="236">236</option><option value="237">237</option><option value="238">238</option><option value="239">239</option><option value="240">240</option><option value="241">241</option><option value="242">242</option><option value="243">243</option><option value="244">244</option><option value="245">245</option><option value="246">246</option><option value="247">247</option><option value="248">248</option><option value="249">249</option><option value="250">250</option><option value="251">251</option><option value="252">252</option><option value="253">253</option><option value="254">254</option><option value="255">255</option><option value="256">256</option><option value="257">257</option><option value="258">258</option><option value="259">259</option><option value="260">260</option><option value="261">261</option><option value="262">262</option><option value="263">263</option><option value="264">264</option><option value="265">265</option><option value="266">266</option><option value="267">267</option><option value="268">268</option><option value="269">269</option><option value="270">270</option><option value="271">271</option><option value="272">272</option><option value="273">273</option><option value="274">274</option><option value="275">275</option><option value="276">276</option><option value="277">277</option><option value="278">278</option><option value="279">279</option><option value="280">280</option><option value="281">281</option><option value="282">282</option><option value="283">283</option><option value="284">284</option><option value="285">285</option><option value="286">286</option><option value="287">287</option><option value="288">288</option><option value="289">289</option><option value="290">290</option><option value="291">291</option><option value="292">292</option><option value="293">293</option><option value="294">294</option><option value="295">295</option><option value="296">296</option><option value="297">297</option><option value="298">298</option><option value="299">299</option><option value="300">300</option><option value="301">301</option><option value="302">302</option><option value="303">303</option><option value="304">304</option><option value="305">305</option><option value="306">306</option><option value="307">307</option><option value="308">308</option><option value="309">309</option><option value="310">310</option><option value="311">311</option><option value="312">312</option><option value="313">313</option><option value="314">314</option><option value="315">315</option><option value="316">316</option><option value="317">317</option><option value="318">318</option><option value="319">319</option><option value="320">320</option><option value="321">321</option><option value="322">322</option><option value="323">323</option><option value="324">324</option><option value="325">325</option><option value="326">326</option><option value="327">327</option><option value="328">328</option><option value="329">329</option><option value="330">330</option><option value="331">331</option><option value="332">332</option><option value="333">333</option><option value="334">334</option><option value="335">335</option><option value="336">336</option><option value="337">337</option><option value="338">338</option><option value="339">339</option><option value="340">340</option><option value="341">341</option><option value="342">342</option><option value="343">343</option><option value="344">344</option><option value="345">345</option><option value="346">346</option><option value="347">347</option><option value="348">348</option><option value="349">349</option><option value="350">350</option><option value="351">351</option><option value="352">352</option><option value="353">353</option><option value="354">354</option><option value="355">355</option><option value="356">356</option><option value="357">357</option><option value="358">358</option><option value="359">359</option><option value="360">360</option><option value="361">361</option><option value="362">362</option><option value="363">363</option><option value="364">364</option><option value="365">365</option><option value="366">366</option><option value="367">367</option><option value="368">368</option><option value="369">369</option><option value="370">370</option><option value="371">371</option><option value="372">372</option><option value="373">373</option><option value="374">374</option><option value="375">375</option><option value="376">376</option><option value="377">377</option><option value="378">378</option><option value="379">379</option><option value="380">380</option><option value="381">381</option><option value="382">382</option><option value="383">383</option><option value="384">384</option><option value="385">385</option><option value="386">386</option><option value="387">387</option><option value="388">388</option><option value="389">389</option><option value="390">390</option><option value="391">391</option><option value="392">392</option><option value="393">393</option><option value="394">394</option><option value="395">395</option><option value="396">396</option><option value="397">397</option><option value="398">398</option><option value="399">399</option><option value="400">400</option><option value="401">401</option><option value="402">402</option><option value="403">403</option><option value="404">404</option><option value="405">405</option><option value="406">406</option><option value="407">407</option><option value="408">408</option><option value="409">409</option><option value="410">410</option><option value="411">411</option><option value="412">412</option><option value="413">413</option><option value="414">414</option><option value="415">415</option><option value="416">416</option><option value="417">417</option><option value="418">418</option><option value="419">419</option><option value="420">420</option><option value="421">421</option><option value="422">422</option><option value="423">423</option><option value="424">424</option><option value="425">425</option><option value="426">426</option><option value="427">427</option><option value="428">428</option><option value="429">429</option><option value="430">430</option><option value="431">431</option><option value="432">432</option><option value="433">433</option><option value="434">434</option><option value="435">435</option><option value="436">436</option><option value="437">437</option><option value="438">438</option><option value="439">439</option><option value="440">440</option><option value="441">441</option><option value="442">442</option><option value="443">443</option><option value="444">444</option><option value="445">445</option><option value="446">446</option><option value="447">447</option><option value="448">448</option><option value="449">449</option><option value="450">450</option><option value="451">451</option><option value="452">452</option><option value="453">453</option><option value="454">454</option><option value="455">455</option><option value="456">456</option><option value="457">457</option><option value="458">458</option><option value="459">459</option><option value="460">460</option><option value="461">461</option><option value="462">462</option><option value="463">463</option><option value="464">464</option><option value="465">465</option><option value="466">466</option><option value="467">467</option><option value="468">468</option><option value="469">469</option><option value="470">470</option><option value="471">471</option><option value="472">472</option><option value="473">473</option><option value="474">474</option><option value="475">475</option><option value="476">476</option><option value="477">477</option><option value="478">478</option><option value="479">479</option><option value="480">480</option><option value="481">481</option><option value="482">482</option><option value="483">483</option><option value="484">484</option><option value="485">485</option><option value="486">486</option><option value="487">487</option><option value="488">488</option><option value="489">489</option><option value="490">490</option><option value="491">491</option><option value="492">492</option><option value="493">493</option><option value="494">494</option><option value="495">495</option><option value="496">496</option><option value="497">497</option><option value="498">498</option><option value="499">499</option><option value="500">500</option><option value="501">501</option><option value="502">502</option><option value="503">503</option><option value="504">504</option><option value="505">505</option><option value="506">506</option><option value="507">507</option><option value="508">508</option><option value="509">509</option><option value="510">510</option><option value="511">511</option><option value="512">512</option><option value="513">513</option><option value="514">514</option><option value="515">515</option><option value="516">516</option><option value="517">517</option><option value="518">518</option><option value="519">519</option><option value="520">520</option><option value="521">521</option><option value="522">522</option><option value="523">523</option><option value="524">524</option><option value="525">525</option><option value="526">526</option><option value="527">527</option><option value="528">528</option><option value="529">529</option><option value="530">530</option><option value="531">531</option><option value="532">532</option><option value="533">533</option><option value="534">534</option><option value="535">535</option><option value="536">536</option><option value="537">537</option><option value="538">538</option><option value="539">539</option><option value="540">540</option><option value="541">541</option><option value="542">542</option><option value="543">543</option><option value="544">544</option><option value="545">545</option><option value="546">546</option><option value="547">547</option><option value="548">548</option><option value="549">549</option><option value="550">550</option><option value="551">551</option><option value="552">552</option><option value="553">553</option><option value="554">554</option><option value="555">555</option><option value="556">556</option><option value="557">557</option><option value="558">558</option><option value="559">559</option><option value="560">560</option><option value="561">561</option><option value="562">562</option><option value="563">563</option><option value="564">564</option><option value="565">565</option><option value="566">566</option><option value="567">567</option><option value="568">568</option><option value="569">569</option><option value="570">570</option><option value="571">571</option><option value="572">572</option><option value="573">573</option><option value="574">574</option><option value="575">575</option><option value="576">576</option><option value="577">577</option><option value="578">578</option><option value="579">579</option><option value="580">580</option><option value="581">581</option><option value="582">582</option><option value="583">583</option><option value="584">584</option><option value="585">585</option><option value="586">586</option><option value="587">587</option><option value="588">588</option><option value="589">589</option><option value="590">590</option><option value="591">591</option><option value="592">592</option><option value="593">593</option><option value="594">594</option><option value="595">595</option><option value="596">596</option><option value="597">597</option><option value="598">598</option><option value="599">599</option><option value="600">600</option><option value="601">601</option><option value="602">602</option><option value="603">603</option><option value="604">604</option><option value="605">605</option><option value="606">606</option><option value="607">607</option><option value="608">608</option><option value="609">609</option><option value="610">610</option><option value="611">611</option><option value="612">612</option><option value="613">613</option><option value="614">614</option><option value="615">615</option><option value="616">616</option><option value="617">617</option><option value="618">618</option><option value="619">619</option><option value="620">620</option><option value="621">621</option><option value="622">622</option><option value="623">623</option><option value="624">624</option><option value="625">625</option><option value="626">626</option><option value="627">627</option><option value="628">628</option><option value="629">629</option><option value="630">630</option><option value="631">631</option><option value="632">632</option><option value="633">633</option><option value="634">634</option><option value="635">635</option><option value="636">636</option><option value="637">637</option><option value="638">638</option><option value="639">639</option><option value="640">640</option><option value="641">641</option><option value="642">642</option><option value="643">643</option><option value="644">644</option><option value="645">645</option><option value="646">646</option><option value="647">647</option><option value="648">648</option><option value="649">649</option><option value="650">650</option><option value="651">651</option><option value="652">652</option><option value="653">653</option><option value="654">654</option><option value="655">655</option><option value="656">656</option><option value="657">657</option><option value="658">658</option><option value="659">659</option><option value="660">660</option><option value="661">661</option><option value="662">662</option><option value="663">663</option><option value="664">664</option><option value="665">665</option><option value="666">666</option><option value="667">667</option><option value="668">668</option><option value="669">669</option><option value="670">670</option><option value="671">671</option><option value="672">672</option><option value="673">673</option><option value="674">674</option><option value="675">675</option><option value="676">676</option><option value="677">677</option><option value="678">678</option><option value="679">679</option><option value="680">680</option><option value="681">681</option><option value="682">682</option><option value="683">683</option><option value="684">684</option><option value="685">685</option><option value="686">686</option><option value="687">687</option><option value="688">688</option><option value="689">689</option><option value="690">690</option><option value="691">691</option><option value="692">692</option><option value="693">693</option><option value="694">694</option><option value="695">695</option><option value="696">696</option><option value="697">697</option><option value="698">698</option><option value="699">699</option><option value="700">700</option><option value="701">701</option><option value="702">702</option><option value="703">703</option><option value="704">704</option><option value="705">705</option><option value="706">706</option><option value="707">707</option><option value="708">708</option><option value="709">709</option><option value="710">710</option><option value="711">711</option><option value="712">712</option><option value="713">713</option><option value="714">714</option><option value="715">715</option><option value="716">716</option><option value="717">717</option><option value="718">718</option><option value="719">719</option><option value="720">720</option><option value="721">721</option><option value="722">722</option><option value="723">723</option><option value="724">724</option><option value="725">725</option><option value="726">726</option><option value="727">727</option><option value="728">728</option><option value="729">729</option><option value="730">730</option><option value="731">731</option><option value="732">732</option><option value="733">733</option><option value="734">734</option><option value="735">735</option><option value="736">736</option><option value="737">737</option><option value="738">738</option><option value="739">739</option><option value="740">740</option><option value="741">741</option><option value="742">742</option><option value="743">743</option><option value="744">744</option><option value="745">745</option><option value="746">746</option><option value="747">747</option><option value="748">748</option><option value="749">749</option><option value="750">750</option><option value="751">751</option><option value="752">752</option><option value="753">753</option><option value="754">754</option><option value="755">755</option><option value="756">756</option><option value="757">757</option><option value="758">758</option><option value="759">759</option><option value="760">760</option><option value="761">761</option><option value="762">762</option><option value="763">763</option><option value="764">764</option><option value="765">765</option><option value="766">766</option><option value="767">767</option><option value="768">768</option><option value="769">769</option><option value="770">770</option><option value="771">771</option><option value="772">772</option><option value="773">773</option><option value="774">774</option><option value="775">775</option><option value="776">776</option><option value="777">777</option><option value="778">778</option><option value="779">779</option><option value="780">780</option><option value="781">781</option><option value="782">782</option><option value="783">783</option><option value="784">784</option><option value="785">785</option><option value="786">786</option><option value="787">787</option><option value="788">788</option><option value="789">789</option><option value="790">790</option><option value="791">791</option><option value="792">792</option><option value="793">793</option><option value="794">794</option><option value="795">795</option><option value="796">796</option><option value="797">797</option><option value="798">798</option><option value="799">799</option><option value="800">800</option>
+                        </select>
+
+
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Analytical Writing</option><option value="0.0">0.0</option><option value="0.5">0.5</option><option value="1.0">1.0</option><option value="1.5">1.5</option><option value="2.0">2.0</option><option value="2.5">2.5</option><option value="3.0">3.0</option><option value="3.5">3.5</option><option value="4.0">4.0</option><option value="4.5">4.5</option><option value="5.0">5.0</option><option value="5.5">5.5</option><option value="6.0">6.0</option>
+                        </select>
+
+                        <br>
+                        <br>
+                        <label data-aos="fade-left" style="margin-top: 1%;color:#380B61  " class=" font-weight-bold">GRE  </label>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Verbal score</option><option value="130">130</option><option value="131">131</option><option value="132">132</option><option value="133">133</option><option value="134">134</option><option value="135">135</option><option value="136">136</option><option value="137">137</option><option value="138">138</option><option value="139">139</option><option value="140">140</option><option value="141">141</option><option value="142">142</option><option value="143">143</option><option value="144">144</option><option value="145">145</option><option value="146">146</option><option value="147">147</option><option value="148">148</option><option value="149">149</option><option value="150">150</option><option value="151">151</option><option value="152">152</option><option value="153">153</option><option value="154">154</option><option value="155">155</option><option value="156">156</option><option value="157">157</option><option value="158">158</option><option value="159">159</option><option value="160">160</option><option value="161">161</option><option value="162">162</option><option value="163">163</option><option value="164">164</option><option value="165">165</option><option value="166">166</option><option value="167">167</option><option value="168">168</option><option value="169">169</option><option value="170">170</option>
+                        </select>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Quantitative score</option><option value="130">130</option><option value="131">131</option><option value="132">132</option><option value="133">133</option><option value="134">134</option><option value="135">135</option><option value="136">136</option><option value="137">137</option><option value="138">138</option><option value="139">139</option><option value="140">140</option><option value="141">141</option><option value="142">142</option><option value="143">143</option><option value="144">144</option><option value="145">145</option><option value="146">146</option><option value="147">147</option><option value="148">148</option><option value="149">149</option><option value="150">150</option><option value="151">151</option><option value="152">152</option><option value="153">153</option><option value="154">154</option><option value="155">155</option><option value="156">156</option><option value="157">157</option><option value="158">158</option><option value="159">159</option><option value="160">160</option><option value="161">161</option><option value="162">162</option><option value="163">163</option><option value="164">164</option><option value="165">165</option><option value="166">166</option><option value="167">167</option><option value="168">168</option><option value="169">169</option><option value="170">170</option>
+                        </select>
+                        <select data-aos="fade-right" class="form-control text-left">
+                            <option value="">Analytical score</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option>
+                        </select>
+                        <br>
+                        <br>
+                        <label data-aos="fade-left" style="margin-top: 1%;color:green  " class=" font-weight-bold">OTHER  </label>
+
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="OTHER">
+
+                        <br>
+                        <hr>
+                        <br>
+                        <p data-aos="fade-right" style="margin-top: 1%;background-color:darkgreen  " class=" font-weight-bold text-center" >اطلاعات متفرقه </p>
+                        <label data-aos="fade-left" style="margin-top: 1%">آیا شما تا کنون برای درخواست روادید به سفارت كشور مورد نظر مراجعه نموده اید؟</label>
+                        <select data-aos="fade-right" dir="ltr" class="form-control text-left">
+                            <option value="">Have You Ever Lodged A Visa Application At The Embassy?</option><option value="Yes" >بله</option><option value="No" >خیر</option>
+                        </select>
+                        <label data-aos="fade-left" style="margin-top: 1%">آیا شما تاکنون اجازه ورود به کشور مورد نظر را دریافت نموده اید؟</label>
+                        <select data-aos="fade-right" dir="ltr" class="form-control text-left">
+                            <option  value="">Have You Ever been Granted A Visa To Enter A Country?</option><option value="Yes" >بله</option><option value="No" >خیر</option>
+                        </select>
+                        <label data-aos="fade-left" style="margin-top: 1%">چه کسی هزینه های تحصیل شما را پرداخت می نماید؟ :</label>
+                        <select data-aos="fade-right" dir="ltr" class="form-control text-left">
+                            <option value="">Who Will Fund Your Expenses?</option><option value="Myself" >خودم</option><option value="Spouse" >همسرم</option><option value="Parents" >والدین</option><option value="Family Members" >بستگان</option><option value="Friends & Relatives" >دوستان و آشنایان</option><option value="Other" >غیره</option>
+                        </select>
+                        <label data-aos="fade-left" style="margin-top: 1%">نوع ساپورت خود را مشخص کنید:</label>
+                        <select data-aos="fade-right" dir="ltr" class="form-control text-left">
+                            <option value="">Select Your Financial Support:</option><option value="Support From Home-Country" >ساپورت از داخل ایران</option><option value="Support From Intended Country Of Study" >ساپورت از کشور مورد نظر</option><option value="Support From Home-Country & Intended Country Of Study" >ساپورت از ایران و کشور مورد نظر</option>
+                        </select>
+                        <label data-aos="fade-left" style="margin-top: 1%">لطفا میزان ساپورت سالیانه تحصیل زندگی و مسکن خود را انتخاب کنید:</label>
+                        <select data-aos="fade-right" dir="ltr" class="form-control text-left">
+                            <option value="">How Much You Can Afford To Pay For Your Studies?</option><option value="25 - 30 K$" >بین 25 تا 30 هزار دلار</option><option value="30 - 35 K$" >بین 30 تا 35 هزار دلار</option><option value="More Than 35K$" >بیش از 35 هزار دلار</option>
+                        </select>
+                        <label data-aos="fade-left" style="margin-top: 1%">اطلاعات مربوط به این موسسه را از چه طریقی کسب نموده اید:</label>
+                        <select data-aos="fade-right" dir="ltr" class="form-control text-left">
+                            <option value="">How did you find about us?</option><option value="Company Website" >وبسایت شرکت</option><option value="Internet Ads" >تبلیغات اینترنتی</option><option value="Referee" >معرف</option><option value="T.V" >شبکه‌های تلویزیونی</option><option value="Papers" >روزنامه</option><option value="Education Providers" >موسسات آموزشی</option><option value="Friends" >دوستان و آشنایان</option><option value="Telegram " >تلگرام</option><option value="Other" >غیره</option>
+                        </select>
+                        <br>
+                        <hr>
+                        <br>
+                        <p data-aos="fade-right" style="margin-top: 1%;background-color:red  " class=" font-weight-bold text-center" >توضیحات تکمیلی </p>
+
+                        <label data-aos="fade-left" style="margin-top: 1%" >توضيحات تكميلي رادر اين كادر قيد نماييد.  </label>
+
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" class="form-control text-left" dir="ltr" type="text" placeholder="Please enter details (optional)">
+
+                        <br>
+                        <hr>
+                        <br>
+                        <p data-aos="fade-right" style="margin-top: 1%;background-color:#e83e8c  " class=" font-weight-bold text-center" >پیوست ها </p>
+
+                        <label data-aos="fade-left" style="margin-top: 1%" >در صورتی که مایل به ارسال فایل یا فایل هایی به همراه فرم خود هستید «اینجــا» کلیک کنید و در بخش توضیحات درج کنید که این فایلها حاوی چه اطلاعاتی هستند.</label>
+
+                        <input data-aos="fade-right"  style="width: 100%;height: auto;" type="file" class="form-control-file text-left" id="exampleFormControlFile1">
+
+                        <br>
+                        <hr>
+                        <br>
+                        <div class="row">
+
+                                <input style="display: inline;margin-right: 3%" data-aos="fade-right" class="form-check-input" type="checkbox" id="gridCheck">
+
+
+                                <label data-aos="fade-left" style="display: inline;margin-right: 12%"  class="form-check-label text-right" for="gridCheck">
+
+                                با ارسال این فرم توان مالی تحصیل و زندگی در کشور مورد نظرخود را تایید می نمایم
+                            </label>
+
+
+
+                        </div>
+
+
+                        <br>
+                        <br>
+                        <button style="width:fit-content;height: auto;margin-right: 40%;" type="submit" class="btn btn-primary">ارسال</button>
+
+
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer" >
+        <div class="container" >
+            <div class="row text-center" >
+
+                <div class="col-lg-6 ">
+                    <div class="footer_logo">
+
+
+                        <div class="footer_logo_title">CDS</div>
+                        <div class="footer_logo_subtitle">we build careers</div>
+                    </div>
+
+                </div>
+                <div class="home_text col-lg-6" style="margin-top: 20px;font-size: 11px">
+                    Design by:
+                    <a href="http://www.unixerr.com" class="mt-0">yucatán</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="styles/bootstrap-4.1.2/popper.js"></script>
+<script src="styles/bootstrap-4.1.2/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="plugins/colorbox/jquery.colorbox-min.js"></script>
+<script src="plugins/jquery-datepicker/jquery-ui.js"></script>
+<script src="plugins/jquery-timepicker/jquery.timepicker.js"></script>
+<script src="js/custom.js"></script>
+<script type="text/javascript">
+    $(window).on("load",function() {
+        $(window).scroll(function() {
+            var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+            $(".anima").each(function() {
+
+                var objectBottom = $(this).offset().top + $(this).outerHeight();
+
+
+                if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+                    if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+                } else { //object goes out of view (scrolling up)
+                    if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+                }
+            });
+        }).scroll();
+    });
+</script>
+<script>
+    AOS.init();
+</script>
+<script>
+
+    var svalue = ''
+    function gotosearch(){
+            window.location = `http://www.google.com.pk/search?btnG=1&pws=0&q=${svalue} site:cdsapply.com`
+            return true;       
+        }
+
+    window.onload=function(){
+
+        var input = document.getElementById("searchQ");
+        input.addEventListener("keydown", function(event) {
+          if (event.keyCode === 13) {
+            event.preventDefault();
+            svalue = input.value
+            document.getElementById("searchQbtn").click();
+          }
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/fetch/index_english.js"></script>
+    <title>CANDO Study Abroad Agency | CDS</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="images/icon.png" />
+    <meta name="description" content="Kendu Student Dispatch Institute">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+    <link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+    <link href="plugins/jquery-datepicker/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="plugins/jquery-timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+    <link rel="stylesheet" type="text/css" href="styles/blog_responsive.css">
+</head>
+<style>
+
+    .blog
+    {
+        width: 100%;
+        background: #FFFFFF;
+        padding-top: 195px;
+        padding-bottom: 102px;
+    }
+    .blog_col
+    {
+        margin-bottom: 70px;
+    }
+    .blog_col:nth-child(even)
+    {
+        -webkit-transform: translateY(70px);
+        -moz-transform: translateY(70px);
+        -ms-transform: translateY(70px);
+        -o-transform: translateY(70px);
+        transform: translateY(70px);
+    }
+    .blog_post
+    {
+        background-color: white;
+        width: 100%;
+        border: solid 1px black;
+        box-shadow: 0px 45px 70px rgba(0,0,0,1);
+    }
+    .blog_post_image
+    {
+        width: 100%;
+    }
+    .blog_post_image img
+    {
+        max-width: 100%;
+    }
+    .blog_post_date
+    {
+        position: absolute;
+        left: 16px;
+        top: -24px;
+        width: 136px;
+        height: 48px;
+        background: #FFFFFF;
+        text-align: center;
+        border: solid 1px black;
+        box-shadow: 0px 45px 70px rgba(0,0,0,1);
+    }
+    .blog_post_date a
+    {
+        display: block;
+        font-size: 16px;
+        color: #232323;
+        line-height: 44px;
+    }
+    .blog_post_content
+    {
+        padding-top: 23px;
+        padding-bottom: 23px;
+    }
+    .blog_post_title
+    {
+
+    }
+    .blog_post_title a
+    {
+        font-size: 36px;
+        color: #232323;
+        line-height: 1.2;
+    }
+    .blog_post_title a:hover
+    {
+        color: #c4ab9f;
+    }
+    .blog_post_info
+    {
+        display: inline-block;
+        margin-top: 13px;
+    }
+    .blog_post_info ul
+    {
+        width: 100%;
+        height: 30px;
+        background: #c4ab9f;
+        padding-left: 23px;
+        padding-right: 26px;
+    }
+    .blog_post_info ul li,
+    .blog_post_info ul li a
+    {
+        font-size: 16px;
+        color: #FFFFFF;
+    }
+    .blog_post_info ul li a:hover
+    {
+        color: #232323;
+    }
+    .blog_post_info ul li
+    {
+        position: relative;
+    }
+    .blog_post_info ul li:not(:last-child)::after
+    {
+        display: inline-block;
+        content: '|';
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    .blog_post_text
+    {
+        margin-top: 32px;
+    }
+    .load_more_row
+    {
+        margin-top: 70px;
+    }
+    .load_more_button
+    {
+        width: 216px;
+        height: 48px;
+        background: #c4ab9f;
+        border: solid 2px #c4ab9f;
+    }
+    .load_more_button:hover
+    {
+        background: transparent;
+    }
+    .load_more_button a
+    {
+        color: #FFFFFF;
+    }
+    .load_more_button:hover a
+    {
+        color: #c4ab9f;
+    }
+   .anima
+   {
+    opacity: 1;
+   }
+    .hov:hover{
+        color: #FFCD05;
+    }
+
+    @media screen and (min-width:800px) {
+        .hover09 figure img {
+            -webkit-filter: sepia(100%);
+            filter: sepia(100%);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+
+        .hover09 figure:hover img {
+            -webkit-filter: sepia(0);
+            filter: sepia(0);
+        }
+    }
+    @media screen and (max-width: 600px) {
+        .hid {
+            display: none;
+        }
+    }
+    @media screen and (max-width: 900px) {
+        .hid2 {
+            display: none;
+        }
+    }
+    .bgedited{
+        background-image: url(images/aboutus.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    @media screen and (max-width:1500px) {
+        .bgedited {
+
+            background-image: url(images/aboutus2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+    @media screen and (max-width:1500px) {
+        .bgedited2 {
+
+            /*background-image: url(images/Languages.jpg);*/
+            background-size: cover;
+        }
+    }
+    .search-input{
+        direction: rtl;
+        /*border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        */
+        border-radius: 0.8rem;
+        /*border-bottom: 2px solid yellow;*/
+        background-color: transparent;
+        color: white;
+        border:solid 2px white;
+    }
+    .search-input::placeholder{
+        color: #fff;
+    }
+    .search-input:focus{
+        outline: none;
+    }
+
+    .search-btn{
+        border: 0;
+        color: white !important;
+        font-size: 18px;
+        padding-right: 3px;
+        background-color: transparent;
+    }
+</style>
+<body>
+<div class="super_container">
+
+
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="header_content d-flex flex-row align-items-center justify-content-start textrtl ">
+                        <div class="logo">
+                            <a href="http://www.cdsapply.com">
+                                <div class="text-center">CDS</div>
+                                <div>we build careers</div>
+                            </a>
+                        </div>
+                        <nav class="main_nav">
+                            <ul  class="d-flex flex-row align-items-center justify-content-start ">
+
+                                <li><a href="#contactus" style="font-size: 12px;" >Contact US</a></li>
+                                <li><a href="cando-testimonial.html" style="font-size: 12px;"> TESTIMONIAL</a></li>
+                                <li><a href="#wbn" style="font-size: 12px;">CONSULTATION REQUEST</a></li>
+                                <li><a class="btn btn-outline-light" href="index.html" style="font-size: 12px;">FA</a></li>
+                                <li class=" rounded">
+                                    <button type="submit" id="searchQbtn" aria-label="Search..." class="search-btn" onclick="gotosearch()"><i class="fa fa-search"></i></button>
+                                    <input class="search-input" name="q" type="text" id="searchQ" placeholder=" Search ..." value=""   />
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="hamburger_bar trans_400 d-flex flex-row align-items-center justify-content-start">
+        <div class="hamburger">
+            <div class="menu_toggle d-flex flex-row align-items-center justify-content-start">
+                <span> MENU </span>
+                <div class="hamburger_container">
+                    <div class="menu_hamburger">
+                        <div class="line_1 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                        <div class="line_2 hamburger_lines" style="visibility: inherit; opacity: 1;"></div>
+                        <div class="line_3 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="menu trans_800">
+        <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+            <ul>
+                <li><a href="index.html" class="btn btn-outline-light align-content-center" style="width: fit-content;margin-left:37%" href="index.html">FA</a></li>
+                <li><a href="#contactus" onClick="window.location.reload()">Contact US</a></li>
+                <li><a href="cando-testimonial.html"> TESTIMONIAL</a></li>
+                <li><a href="#wbn" onClick="window.location.reload()">CONSULTATION REQUEST</a></li>
+                <!-- <li class=" rounded">
+                    <button type="submit" id="searchQbtn" aria-label="Search..." class="search-btn" onclick="gotosearch()"><i class="fa fa-search"></i></button>
+                    <input class="search-input" name="q" id="searchQ" type="text" placeholder="  جست و جو..." value=""   />
+                </li> -->
+            </ul>
+
+        </div>
+        <div class="menu_reservations_phone ml-auto"><div class="logo">
+            <a href="http//www.cdsapply.com">
+                <div>C    D    S</div>
+                <div class="mt-auto">we build careers</div>
+            </a>
+        </div></div>
+    </div>
+
+
+
+    <div class="home">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/background.jpg" data-speed="1.2"></div>
+        <div class="home_container text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content text-center">
+                            <div style="width: 100%"><div style="width: 50%;margin-top: -30%;margin-bottom: -10%;margin-left: 25%" class="hover09 "> <figure><img width="100%"   src="images/logo.png"></figure></div></div>
+                            <div class="home_title "><h1 class="hov">Study Abroad & Student Consultancy Institute</h1></div>
+                            <div class="home_title"><h1 class="hov">Cando Daneshavaran Sam</h1></div>
+                            <div class="home_text ml-auto mr-auto">
+                                <p class="hov">Study in Canada, Australia, New Zealand and Other Countries</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll_icon mb-3 hid"></div>
+    </div>
+
+
+    <div class="intro" >
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="intro_content" >
+                        <div class="row ">
+
+                            <div class="intro_subtitle page_subtitle col-lg-4 anima ">Our Services</div>
+                            <div class="intro_title text-right col-lg-8 anima "><h2>Services of the kendu</h2></div>
+
+                        </div>
+
+                        <div class="intro_text text-left mt-0" >
+                            <p >Provide free educational advice on examining qualifications and work records to determine eligibility for admission to universities in the country to provide all academic admission services including tourist visa services for first-degree relatives, student insurance, accommodation or temporary accommodation, action for Student Scholarship (PhD and Master's Degree), submitting applications to multiple universities without increasing contract rates, reviewing applicant's financial records and ensuring their validity, applying for all available scholarships without increasing contract rates, official translation of all required documents, Help in writing a resume, letter n Yz·h school and work certificates and other necessary measures</p>
+                        </div>
+                        <!-- <div class="button sig_button trans_200 anima mt-0 " style="margin-left: 60%"><a href="services.html">Other Services </a></div> -->
+                    </div>
+                    <div class="row hid2 ">
+                        <div class="col-xl-4 col-md-6 intro_col ">
+                            <div class="intro_image" data-aos="fade-right" data-aos-duration="3000"><img src="images/Services.jpg" alt="https://unsplash.com/@quanle2819"></div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 intro_col ">
+                            <div class="intro_image" data-aos="fade-right"
+
+                                 data-aos-duration="1500"><img src="images/Services2.jpg" alt="https://unsplash.com/@fabmag"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="bgedited">
+        <div class="container">
+
+            <div class="row " >
+                <div class="col-lg-8 mt-4 mb-4">
+                    <div class="text-left home_text rounded p-3" style="background-color: rgb(0, 0, 0,0.4)">
+                        <p>Sam Kendo Institute of Students has been operating in three areas of Canada, Australia and New Zealand since 2011 with official authorization from the Ministry of Science and Research and provides student services to those interested in studying in these countries.</p>
+                        <p >Experienced hive consultants guide you through all the stages from basic advice on general living and living conditions in Australia, New Zealand and Canada and helping to choose a field of study depending on their job market and their living conditions. They will be accompanied by a scholarship and a visa to apply for admission</p>
+                        <p>Obtaining, staying, and dispatching students is one of the most important goals of his or her student body, Oran Sam. Multi-year experience in obtaining, staying and sending students overseas has begun its activities. Accurate and accurate information, academic admissions advice and sending students to Canada, Australia, New Zealand and others Countries through authorized partner institutions to send students to case universities Logged Ministry of Science, the most important services the hive.</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+
+
+                    <img style="width: 100%;margin-top: -10%;margin-bottom: -10% " src="images/logo.png" >
+
+                    <div class="text-center home_text mt-0" style="background-color: rgb(0, 0, 0,0.4)">
+                        <p style="margin-bottom: -0.1%;color: yellow">Kendu danesh-avaran sam</p>
+                        <p style="margin-bottom: -0.1%;color: yellow">Student dispatch institute abroad</p>
+                        <p style="margin-bottom: -0.1%;color: yellow">Licensed No: 67386-17-42 from Ministry of Science Research and Technology</p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="sig" id="wbn">
+        <div class="sig_content_container" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7" data-aos="fade-right">
+                        <div class="sig_content">
+                            <div class="sig_subtitle page_subtitle ">Advice and Guidance</div>
+                            <div class="sig_title text-right "><h1 class="saheltitle">Consultation</h1></div>
+
+                            <div class="sig_name_container d-flex flex-row align-items-start justify-content-start">
+                                <div class="sig_name text-left  ">You can use the link below for a free consultation</div>
+                            </div>
+                            <div class="button sig_button trans_200 "><a href="consultation.html">Consultation recuest</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sig_image_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 offset-lg-5">
+                        <div class="sig_image hid2" data-aos="fade-left">
+                            <div class="background_image" style="background-image:url(images/Consulting.jpg)"></div>
+                            <img src="images/Consulting.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+
+
+            <div class="row">
+            <div class="col">
+                <div class="themenu_title_bar_container">
+                    <div class="themenu_stars text-center page_subtitle">Abroad</div>
+
+                    <div class="themenu_title_bar d-flex flex-column align-items-center justify-content-center">
+                        <div class="themenu_title saheltitle">Study In</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/World.jpg" data-speed="1.25"></div>
+        <div class="container">
+        <div class="themenu bg-transparent">
+            <div class="row themenu_row ">
+
+
+                <div class="col-lg-4 themenu_column" data-aos="zoom-out-left">
+                    <div class="themenu_col text-center bg-white " style="border: dotted 2px black">
+
+                        <img src="images/aus.png">
+                        <a href="posts.html?country=australia&lang=en"><div class="themenu_col_title col-lg-11 mt-3 " data-aos="zoom-in-down">Australia</div></a>
+
+
+
+                    </div>
+                </div>
+                <div class="col-lg-4 themenu_column" data-aos="flip-up">
+                    <div class="themenu_col text-center bg-white " style="border: dotted 2px black">
+
+                        <img src="images/canada.png">
+                        <a href="posts.html?country=canada&lang=en"><div class="themenu_col_title col-lg-11 mt-3" data-aos="zoom-in-down">Canada</div></a>
+
+
+
+                    </div>
+                </div>
+                <div class="col-lg-4 themenu_column" data-aos="zoom-out-right">
+                    <div class="themenu_col text-center bg-white" style="border: dotted 2px black">
+
+                        <img src="images/newz.png">
+                        <a href="posts.html?country=newzealand&lang=en"><div class="themenu_col_title col-lg-11 mt-3 " data-aos="zoom-in-down" style="padding-left: 4px !important;">New Zealand</div></a>
+
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+</div>
+            <div class="intro_title text-center container " data-aos="zoom-in-down"><h2 class="bg-white saheltitle" style="margin-bottom:0"> ــــــــ Other countries ــــــــ</h2></div>
+        </div>
+<div class="bg-white row ">
+    <div class="col-lg-4">
+    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+
+        <div class="carousel-inner text-dark font-weight-bold rounded " style="width: 20%;margin-left: 40%;border: dotted 2px black;font-size: 18px; box-shadow: 0px 0px 30px rgba(0,0,0,0.5);"  role="listbox">
+            <div class="carousel-item active"><a href="posts.html?country=switzerland&lang=fa">
+                <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded border-primary" src="images/swiss.png" alt="First slide">
+                <div class="card-title text-center saheltitle">Swiss</div>
+            </a></div>
+            <div class="carousel-item"><a href="posts.html?country=hungary&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/hungary.png" alt="First slide">
+                    <div class="card-title text-center saheltitle">Hungary</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=italy&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/italy.png" alt="Second slide">
+                    <div class="card-title text-center saheltitle">Italy</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=cyprus&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/cyprus.png" alt="Second slide">
+                    <div class="card-title text-center saheltitle">Cyprus</div>
+                </a></div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" style="margin-left: 25%" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" style="margin-right: 25%" role="button" data-slide="next">
+            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    </div>
+    <div class="col-lg-4">
+        <div id="carouselExampleIndicators2" class="carousel slide my-4" data-ride="carousel">
+            <div class="carousel-inner text-dark font-weight-bold rounded " style="width: 20%;margin-left: 40%;border: dotted 2px black;font-size: 18px;box-shadow: 0px 0px 30px rgba(0,0,0,0.5);"  role="listbox">
+                <div class="carousel-item active"><a href="posts.html?country=poland&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/poland.png" alt="Third slide">
+                    <div class="card-title text-center saheltitle">Poland</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=sweden&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/sweden.png" alt="Third slide">
+                    <div class="card-title text-center saheltitle">Sweden</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=turkey&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/turkey.png" alt="First slide">
+                    <div class="card-title text-center saheltitle">Turkey</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=spain&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/spain.png" alt="Third slide">
+                    <div class="card-title text-center saheltitle">Spain</div>
+                </a></div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators2" style="margin-left: 25%" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators2" style="margin-right: 25%" role="button" data-slide="next">
+                <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div id="carouselExampleIndicators3" class="carousel slide my-4" data-ride="carousel">
+            <div class="carousel-inner text-dark font-weight-bold rounded " style="width: 20%;margin-left: 40% ;border: dotted 2px black;font-size: 18px;box-shadow: 0px 0px 30px rgba(0,0,0,0.5);"  role="listbox">
+                <div class="carousel-item active"><a href="posts.html?country=china&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/china.png" alt="First slide">
+                    <div class="card-title text-center saheltitle">China</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=germany&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/germany.png" alt="Third slide">
+                    <div class="card-title text-center saheltitle">Germany</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=russia&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/russia.png" alt="First slide">
+                    <div class="card-title text-center saheltitle">Russia</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=unitedkingdom&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/uk.png" alt="Third slide">
+                    <div class="card-title text-center saheltitle">England</div>
+                </a></div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators3" style="margin-left: 25%" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators3" style="margin-right: 25%" role="button" data-slide="next">
+                <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+
+
+
+    <div class="bgedited2">
+    <div class="row">
+        <div class="col">
+            <div class="themenu_title_bar_container">
+                <div class="themenu_stars text-center page_subtitle">Language Courses</div>
+
+                <div class="themenu_title_bar d-flex flex-column align-items-center justify-content-center">
+                    <div class="themenu_title ">CANDO Language Courses</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/Languages.jpg" data-speed="0.8" ></div>
+
+<div class="container" >
+
+    <div class="blog bg-transparent">
+
+            <div class="row">
+
+
+                <div class="col-lg-3 blog_col ">
+                    <div id="carouselExampleIndicators11" class="carousel slide my-4" data-ride="carousel">
+
+                        <div class="carousel-inner text-dark font-weight-bold "   role="listbox">
+                            <div class="carousel-item active pt-4"><a href="posts.html?lg=malta&lang=en">
+                                <div class="blog_post " data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/maltaLG.jpg" alt="https://unsplash.com/@patrick_schneider"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=malta&lang=en">Malta</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center "><a href="posts.html?lg=malta&lang=en" style="font-size: 25px">Language Courses In Malta</a></div>
+                                    </div>
+                                </div>
+                            </a></div>
+                            <div class="carousel-item pt-4"><a href="posts.html?lg=malta&lang=en">
+                                <div class="blog_post " data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/maltaLG.jpg" alt="https://unsplash.com/@patrick_schneider"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=malta&lang=en">Malta</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center "><a href="posts.html?lg=malta&lang=en" style="font-size: 25px">Language Courses In Malta</a></div>
+                                    </div>
+                                </div>
+                            </a></div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators11"  role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators11"  role="button" data-slide="next">
+                            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 blog_col "  style="margin-bottom: 150px">
+                    <div id="carouselExampleIndicators12" class="carousel slide my-4" data-ride="carousel">
+
+                        <div class="carousel-inner text-dark font-weight-bold "   role="listbox">
+                            <div class="carousel-item active pt-4"><a href="posts.html?lg=england&lang=en">
+                                <div class="blog_post" data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/engLG.jpg" alt="https://unsplash.com/@tashytown"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=england&lang=en">England</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center"><a href="posts.html?lg=england&lang=en" style="font-size: 25px">Language Courses In England</a></div>
+
+                                    </div>
+                                </div>
+                            </a></div>
+                            <div class="carousel-item pt-4"><a href="posts.html?lg=england&lang=en">
+                                <div class="blog_post" data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/engLG.jpg" alt="https://unsplash.com/@tashytown"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=england&lang=en">England</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center"><a href="posts.html?lg=england&lang=en" style="font-size: 25px">Language Courses In England</a></div>
+
+                                    </div>
+                                </div>
+                            </a></div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators12"  role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators12"  role="button" data-slide="next">
+                            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 blog_col ">
+                    <div id="carouselExampleIndicators13" class="carousel slide my-4" data-ride="carousel">
+
+                        <div class="carousel-inner text-dark font-weight-bold "   role="listbox">
+                            <div class="carousel-item active pt-4"><a href="posts.html?lg=malaysia&lang=en">
+                                <div class="blog_post" data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/malaysiaLG.jpg" alt="https://unsplash.com/@stefanjonhson"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=malaysia&lang=en">Malaysia</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center"><a href="posts.html?lg=malaysia&lang=en" style="font-size: 25px">Language Courses In Malaysia</a></div>
+
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+                            <div class="carousel-item pt-4"><a href="posts.html?lg=malaysia&lang=en">
+                                <div class="blog_post" data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/malaysiaLG.jpg" alt="https://unsplash.com/@stefanjonhson"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=malaysia&lang=en">Malaysia</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center"><a href="posts.html?lg=malaysia&lang=en" style="font-size: 25px">Language Courses In Malaysia</a></div>
+
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators13"  role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators13"  role="button" data-slide="next">
+                            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 blog_col ">
+                    <div id="carouselExampleIndicators14" class="carousel slide my-4" data-ride="carousel">
+
+                        <div class="carousel-inner text-dark font-weight-bold "   role="listbox">
+                            <div class="carousel-item active pt-4"><a href="posts.html?lg=swiss&lang=en">
+                                <div class="blog_post" data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/swissLG.jpg" alt="Jackelin Slack"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=swiss&lang=en">Swiss</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center"><a href="posts.html?lg=swiss&lang=en" style="font-size: 25px">Language Courses In Switzerland</a></div>
+
+                                    </div>
+                                </div>
+                            </a></div>
+                            <div class="carousel-item pt-4"><a href="posts.html?lg=swiss&lang=en">
+                                <div class="blog_post" data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/swissLG.jpg" alt="Jackelin Slack"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=swiss&lang=en">Swiss</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center"><a href="posts.html?lg=swiss&lang=en" style="font-size: 25px">Language Courses In Switzerland</a></div>
+
+                                    </div>
+                                </div>
+                            </a></div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators14"  role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators14"  role="button" data-slide="next">
+                            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+    </div>
+</div>
+</div>
+
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-lg-4" style="max-height: 415px;overflow-y: scroll;overflow-x: hidden;">
+               <div class=""><h2 class="text-center " data-aos="fade-right" data-aos-duration="500"> index of articles  </h2></div>
+                <div class="text-left ">
+                    <ul>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html">List of authorized institutions of the Ministry of Science </a></li>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html"> Ministry of Science, Research and Technology</a></li>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html">University of Tehran </a></li>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html"> Tehran IELTS</a></li>
+                        <li><a  class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html"> Student dispatch institutes association</a></li>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html">IELTS International Translation Company</a></li>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html"> ETS</a></li>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html"> IDP</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-8" id="posts" style="max-height: 415px;overflow-y: scroll;">
+               <h2 class="text-center" data-aos="fade-up"> Newsletter  </h2>
+                
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="reservations text-center" id="contactus">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/Contact-Us.jpg" data-speed="0.8"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="reservations_content d-flex flex-column align-items-center justify-content-center">
+                        <div class="res_stars page_subtitle">CDS</div>
+                        <div class="res_title hov">Stay in touch with us</div>
+
+                        <div class="row mt-5 " >
+                            <div class="col-4 mp" >
+                                <div class="text-left text-white mt-3" style="font-size: 24px;direction: rtl;font-weight: bold">
+                                    On social networks:
+                                </div>
+                                <div class="mt-2">
+                                    <a href="https://www.instagram.com/"><img src="images/instagram.png"></a>
+                                    <a href="https://t.me/"><img src="images/telegram.png"></a>
+                                </div>
+                            </div>
+                            <div class="col-4 text-left home_text">
+                                <p class="hov" style="margin-bottom: -0.1%">Address: Sari - Imam Square - Berlian Building - First Floor - Above the Commercial Bank, Unit 19</p>
+                                <p class="hov">Please contact Institute experts before coming to the institute</p>
+
+                            </div>
+                            <div class="col-4 text-left home_text" style="direction: rtl">
+                                <p class="hov" style="margin-bottom: -0.1%">Dr. Azizi Kendu Student Dispatch Institute</p>
+                                <p class="hov" style="margin-bottom: -0.1%">Licensed by the Ministry of Science</p>
+                                <p class="hov" style="margin-bottom: -0.1%">Contact numbers to schedule</p>
+                                <p class="hov" style="margin-bottom: -0.1%">011333675000</p>
+                                <p class="hov" style="">09030612326</p>
+
+                            </div>
+
+                        </div>
+
+                        <!--<button class="res_button">Contact Us</button>-->
+                        <div class="button btn-outline-light text-light sig_button trans_200 "><a href="contact.html">Contact Us</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer" >
+        <div class="container" >
+            <div class="row text-center" >
+
+                <div class="col-lg-6 ">
+                    <div class="footer_logo">
+
+
+                        <div class="footer_logo_title">CDS</div>
+                        <div class="footer_logo_subtitle">we build careers</div>
+                    </div>
+
+                </div>
+                <div class="home_text col-lg-6" style="margin-top: 20px;font-size: 11px">
+                    Design by:
+                    <a href="http://unixerr.com" class="mt-0">yucatán</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</div>
+<script src="styles/bootstrap-4.1.2/popper.js"></script>
+<script src="styles/bootstrap-4.1.2/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="plugins/colorbox/jquery.colorbox-min.js"></script>
+<script src="plugins/jquery-datepicker/jquery-ui.js"></script>
+<script src="plugins/jquery-timepicker/jquery.timepicker.js"></script>
+<script src="js/custom.js"></script>
+<script type="text/javascript">
+    $(window).on("load",function() {
+        $(window).scroll(function() {
+            var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+            $(".anima").each(function() {
+
+                var objectBottom = $(this).offset().top + $(this).outerHeight();
+
+
+                if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+                    if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+                } else { //object goes out of view (scrolling up)
+                    if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+                }
+            });
+        }).scroll();
+    });
+</script>
+<script>
+    AOS.init();
+</script>
+<script>
+
+    var svalue = ''
+    function gotosearch(){
+            window.location = `http://www.google.com.pk/search?btnG=1&pws=0&q=${svalue} site:cdsapply.com`
+            return true;       
+        }
+
+    window.onload=function(){
+
+        var input = document.getElementById("searchQ");
+        input.addEventListener("keydown", function(event) {
+          if (event.keyCode === 13) {
+            event.preventDefault();
+            svalue = input.value
+            document.getElementById("searchQbtn").click();
+          }
+        });
+    }
+</script>
+</body>
+</html>

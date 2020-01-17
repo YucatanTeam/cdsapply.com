@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/fetch/index.js"></script>
+    <title>وسسه اعزام دانشجو کندو  | CDS</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="images/icon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="موسسه اعزام دانشجو کندو">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+    <link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+    <link href="plugins/jquery-datepicker/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="plugins/jquery-timepicker/jquery.timepicker.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+    <link rel="stylesheet" type="text/css" href="styles/blog_responsive.css">
+</head>
+<style>
+
+    .blog
+    {
+        width: 100%;
+        background: #FFFFFF;
+        padding-top: 195px;
+        padding-bottom: 102px;
+    }
+    .blog_col
+    {
+        margin-bottom: 70px;
+    }
+    .blog_col:nth-child(even)
+    {
+        -webkit-transform: translateY(70px);
+        -moz-transform: translateY(70px);
+        -ms-transform: translateY(70px);
+        -o-transform: translateY(70px);
+        transform: translateY(70px);
+    }
+    .blog_post
+    {
+        background-color: white;
+        width: 100%;
+        border: solid 1px black;
+        box-shadow: 0px 45px 70px rgba(0,0,0,1);
+    }
+    .blog_post_image
+    {
+        width: 100%;
+    }
+    .blog_post_image img
+    {
+        max-width: 100%;
+    }
+    .blog_post_date
+    {
+        position: absolute;
+        left: 16px;
+        top: -24px;
+        width: 136px;
+        height: 48px;
+        background: #FFFFFF;
+        text-align: center;
+        border: solid 1px black;
+        box-shadow: 0px 45px 70px rgba(0,0,0,1);
+    }
+    .blog_post_date a
+    {
+        display: block;
+        font-size: 16px;
+        color: #232323;
+        line-height: 44px;
+    }
+    .blog_post_content
+    {
+        padding-top: 23px;
+        padding-bottom: 23px;
+    }
+    .blog_post_title
+    {
+
+    }
+    .blog_post_title a
+    {
+        font-size: 36px;
+        color: #232323;
+        line-height: 1.2;
+    }
+    .blog_post_title a:hover
+    {
+        color: #c4ab9f;
+    }
+    .blog_post_info
+    {
+        display: inline-block;
+        margin-top: 13px;
+    }
+    .blog_post_info ul
+    {
+        width: 100%;
+        height: 30px;
+        background: #c4ab9f;
+        padding-left: 23px;
+        padding-right: 26px;
+    }
+    .blog_post_info ul li,
+    .blog_post_info ul li a
+    {
+        font-size: 16px;
+        color: #FFFFFF;
+    }
+    .blog_post_info ul li a:hover
+    {
+        color: #232323;
+    }
+    .blog_post_info ul li
+    {
+        position: relative;
+    }
+    .blog_post_info ul li:not(:last-child)::after
+    {
+        display: inline-block;
+        content: '|';
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    .blog_post_text
+    {
+        margin-top: 32px;
+    }
+    .load_more_row
+    {
+        margin-top: 70px;
+    }
+    .load_more_button
+    {
+        width: 216px;
+        height: 48px;
+        background: #c4ab9f;
+        border: solid 2px #c4ab9f;
+    }
+    .load_more_button:hover
+    {
+        background: transparent;
+    }
+    .load_more_button a
+    {
+        color: #FFFFFF;
+    }
+    .load_more_button:hover a
+    {
+        color: #c4ab9f;
+    }
+   .anima
+   {
+    opacity: 1;
+   }
+
+    @font-face {
+        font-family: myFirstFont;
+        src:url("font/Sahel.ttf");
+    }
+
+    p{
+        font-family: myFirstFont;
+        font-size: 16px;
+    }
+    .saheltitle
+    {
+        font-family: myFirstFont;
+
+    }
+    @media screen and (min-width:800px) {
+        .hover09 figure img {
+            -webkit-filter: sepia(100%);
+            filter: sepia(100%);
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
+
+        .hover09 figure:hover img {
+            -webkit-filter: sepia(0);
+            filter: sepia(0);
+        }
+    }
+    .hov:hover {
+        color: #FFCD05;
+    }
+    @media screen and (max-width: 600px) {
+        .hid {
+            display: none;
+        }
+    }
+    @media screen and (max-width: 900px) {
+        .hid2 {
+            display: none;
+        }
+    }
+    .bgedited{
+        background-image: url(images/aboutus.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    @media screen and (max-width:1000px) {
+        .bgedited {
+
+            background-image: url(images/aboutus2.jpg);
+            background-size: cover;
+
+        }
+    }
+    /*.bgedited2 {*/
+
+        /*background-image: url(images/language3-2.jpg);*/
+        /*background-repeat: no-repeat;*/
+        /*background-size: 100%;*/
+    /*}*/
+    @media screen and (max-width:1500px) {
+        .bgedited2 {
+
+            /*background-image: url(images/Languages.jpg);*/
+            background-size: cover;
+        }
+    }
+
+    .search-input{
+        direction: rtl;
+        /*border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        */
+        border-radius: 0.8rem;
+        /*border-bottom: 2px solid yellow;*/
+        background-color: transparent;
+        color: white;
+        border:solid 2px white;
+    }
+    .search-input::placeholder{
+        color: #fff;
+    }
+    .search-input:focus{
+        outline: none;
+    }
+
+    .search-btn{
+        border: 0;
+        color: white !important;
+        font-size: 18px;
+        padding-right: 3px;
+        background-color: transparent;
+    }
+    a{
+        font-family: myFirstFont;
+    }
+</style>
+
+
+
+<body style="font-family: myFirstFont;">
+<div class="super_container">
+
+
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="header_content d-flex flex-row align-items-center justify-content-start textrtl ">
+                        <div class="logo">
+                            <a href="http://www.cdsapply.com">
+                                <div>        CDS</div>
+                                <div>we build careers</div>
+                            </a>
+                        </div>
+                        <nav class="main_nav">
+                            <ul  class="d-flex flex-row align-items-center justify-content-start ">
+
+                                <li><a href="#contactus" style="font-size: 12px;">تماس با کندو</a></li>
+                                <li><a href="cando-testimonial.html" style="font-size: 12px;">گواه نوشت</a></li>
+                                <li><a href="#wbn" style="font-size: 12px;">مشاوره مهاجرت</a></li>
+                                <li><a href="index_english.html" style="font-size: 12px;" class="btn btn-outline-light" href="index.html">EN</a></li>
+                                 <button type="submit" id="searchQbtn" aria-label="Search..." class="search-btn" onclick="gotosearch()"><i class="fa fa-search"></i></button>
+                                    <input id="searchQ" class="search-input" name="q" type="text" placeholder="  جست و جو..." value=""   />
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="hamburger_bar trans_400 d-flex flex-row align-items-center justify-content-start">
+        <div class="hamburger">
+            <div class="menu_toggle d-flex flex-row align-items-center justify-content-start">
+                <span> فهرست </span>
+                <div class="hamburger_container">
+                    <div class="menu_hamburger">
+                        <div class="line_1 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                        <div class="line_2 hamburger_lines" style="visibility: inherit; opacity: 1;"></div>
+                        <div class="line_3 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="menu trans_800">
+        <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+            <ul>
+                <li><a href="index_english.html" class="btn btn-outline-light align-content-center" style="width: fit-content;margin-left:37%" >EN</a></li>
+
+                <li><a href="#contactus" onClick="window.location.reload()">تماس با کندو</a></li>
+                <li><a href="cando-testimonial.html">گواه نوشت</a></li>
+                <li><a href="#wbn" onClick="window.location.reload()">مشاوره مهاجرت</a></li>
+                <!-- <li >
+                    <button type="submit" id="searchQbtn" aria-label="Search..." class="search-btn" onclick="gotosearch()"><i class="fa fa-search"></i></button>
+                                    <input id="searchQ" class="search-input" name="q" type="text" placeholder="  جست و جو..." value=""   />
+                </li>
+ -->            </ul>
+
+        </div>
+        <div class="menu_reservations_phone ml-auto"><div class="logo">
+            <a href="htt://www.cdsapply.com">
+                <div>C    D    S</div>
+                <div class="mt-auto">we build careers</div>
+            </a>
+        </div></div>
+    </div>
+
+
+
+    <div class="home">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/background.jpg" data-speed="1.2"></div>
+        <div class="home_container text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content text-center">
+                            <div style="width: 100%"><div style="width: 50%;margin-top: -30%;margin-bottom: -10%;margin-left: 25%" class="hover09 "> <figure><img width="100%"   src="images/logo.png"></figure></div></div>
+                            <div class="home_title"><h1 class="saheltitle hov">موسسه اعزام دانشجو</h1></div>
+                            <div class="home_title"><h1 class="saheltitle hov">کندو دانش آوران سام</h1></div>
+                            <div class="home_text ml-auto mr-auto">
+                                <p class="hov">مهاجرت تحصیلی به کانادا، استرالیا، نیوزیلند و سایر کشور ها</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll_icon mb-3 hid"></div>
+    </div>
+
+
+    <div class="intro" >
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="intro_content" >
+                        <div class="row ">
+
+                            <div class="intro_subtitle page_subtitle col-lg-4 anima ">Our Services</div>
+                            <div class="intro_title text-right col-lg-8 anima "><h2 class="saheltitle ">خدمات کندو</h2></div>
+
+                        </div>
+
+                        <div class="intro_text text-right mt-0" >
+                            <p >ارائه مشاوره ی تحصیلی رایگان برای بررسی مدارک تحصیلی و سوابق کاری جهت تعیین امکان پذیرش از دانشگاه های این کشور تا ارائه تمامی خدمات پذیرش تحصیلی از جمله خدمات ویزای توریستی برای اقوام درجه یک متقاضی ، تهیه بیمه دانشجویی ، رزرو خوابگاه یا اقامتگاه موقت ، اقدام برای بورس دانشجویی(دوره دکترا و کارشناسی ارشد تحقیقاتی) ، ارسال تقاضای پذیرش به چندین دانشگاه بدون افزایش نرخ قرارداد،  بررسی مدارک مالی متقاضی و اطمینان از صحت انها ، اقدام برای تمامی بورس های موجود بدون افزایش نرخ قرارداد ،  ترجمه رسمی کلیه مدارک مورد نیاز، راهنمایی در نگارش رزومه،نامه انگیزه تحصیلی و گواهی کار و سایر اقدامات لازم</p>
+                        </div>
+                        <!-- <div class="button sig_button trans_200 anima mt-0"><a href="services.html" >سایر خدمات</a></div> -->
+                    </div>
+                    <div class="row hid2 ">
+                        <div class="col-xl-4 col-md-6 intro_col ">
+                            <div class="intro_image" data-aos="fade-right" data-aos-duration="3000"><img src="images/Services.jpg" alt="https://unsplash.com/@quanle2819"></div>
+                        </div>
+                        <div class="col-xl-4 col-md-6 intro_col ">
+                            <div class="intro_image" data-aos="fade-right"
+
+                                 data-aos-duration="1500"><img src="images/Services2.jpg" alt="https://unsplash.com/@fabmag"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="bgedited" >
+        <div class="container">
+
+            <div class="row " >
+                <div class="col-lg-8 mt-4 mb-4">
+                    <div class="text-right home_text rounded p-3" style="background-color: rgb(0, 0, 0,0.4)">
+                        <p>موسسه کندو دانش آوران سام از سال 1390 تاکنون با مجوز رسمی از وزارت علوم و تحقیقات و فناوری در سه حوزه کشور های کانادا،استرالیا و نیوزلند فعالیت کرده و به علاقمندان به تحصیل در این کشور ها خدمات دانشجویی ارائه می نماید</p>
+                        <p >مشاورین متخصص و با تجربه ی کندو شما را در تمامی مراحل از مشاوره ی ابتدایی در مورد شرایط عمومی تحصیل و زندگی در استرالیا ، نیوزلند و کانادا و کمک به انتخاب رشته تحصیلی با توجه به بازار کار این کشور ها و شرایط اقامتی آنها ، تا اقدام جهت اخذ پذیرش ، بورس و ویزای تحصیلی همراهی خواهند نمود</p>
+                        <p>اخذ پذیرش،اقامت و اعزام دانشجو به خارج از مهم ترین اهداف موسسه کندودانش اوران سام میباشد.موسسه کندو دارای مجوز رسمی از وزارت علوم،تحقیقات وفناوری با برخورداری از نمایندگان و مشاوران مجرب دانشگاهی و با سابقه مدیریتی بالا در داخل و خارج از ایران و سابقه چندین ساله در زمینه اخذ پذیرش،اقامت و اعزام دانشجو به خارح از کشور فعالیت خود را آغاز نموده است .اطلاع رسانی درست و دقیق ،مشاوره در زمینه پذیرش تحصیلی کشور های مختلف و اعزام دانشجو به کشور های کانادا ،استرالیا ،نیوزلند و سایر کشور ها از طریق موسسات مجاز همکار در امر اعزام دانشجو به دانشگاه های مورد تایید وزارت علوم، از مهم ترین خدمات کندو است.امید اس که رسالت این موسسه به عنوان یکی برترین موسسات اعزام دانشجو در جهت ارائه بهترین خدمات به متقاضیان گرامی،به خوبی تداوم یافته و در این مسیر شما را تا آخرین مرحله برای ادامه تحصیل،اسکان،اقامت،دوره کالج زبان،ویزای تحصیلی،بورسیه تحصیلی و خدمات متنوع دیگر برای همه ی سنین ور مقاطع مختلف تحصیلی همراهی نمایید</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+
+
+                    <img style="width: 100%;margin-top: -10%;margin-bottom: -10% " src="images/logo.png" >
+
+                    <div class="text-center home_text rounded p-3" style="background-color: rgb(0, 0, 0,0.4)">
+                        <p style="margin-bottom: -0.1%;color: yellow">کندو دانش آوران سام</p>
+                        <p style="margin-bottom: -0.1%;color: yellow">موسسه اعزام دانشجو به خارج از کشور</p>
+                        <p style="margin-bottom: -0.1%;color: yellow">با مجوز رسمی شماره67386-17-42 از وزارت علوم تحقیقات و فناوری</p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="sig" id="wbn">
+        <div class="sig_content_container" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7" data-aos="fade-right">
+                        <div class="sig_content">
+                            <div class="sig_subtitle page_subtitle ">Consulting</div>
+                            <div class="sig_title text-right "><h1 class="saheltitle">راهنمایی و مشاوره</h1></div>
+
+                            <div class="sig_name_container d-flex flex-row align-items-start justify-content-start">
+                                <div class="sig_name text-right  ">برای درخواست مشاوره رایگان می توانید از لینک زیر استفاده کنید </div>
+                            </div>
+                            <div class="button sig_button trans_200 "><a href="consultation.html">درخواست مشاوره</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sig_image_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 offset-lg-5">
+                        <div class="sig_image hid2" data-aos="fade-left">
+                            <div class="background_image" style="background-image:url(images/Consulting.jpg)"></div>
+                            <img src="images/Consulting.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div >
+
+
+            <div class="row">
+            <div class="col">
+                <div class="themenu_title_bar_container">
+                    <div class="themenu_stars text-center page_subtitle">Study In</div>
+
+                    <div class="themenu_title_bar d-flex flex-column align-items-center justify-content-center">
+                        <div class="themenu_title saheltitle">مهاجرت</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/World.jpg" data-speed="1.25"></div>
+        <div class="container">
+        <div class="themenu bg-transparent">
+            <div class="row themenu_row ">
+
+
+                <div class="col-lg-4 themenu_column" data-aos="zoom-out-left">
+                    <div class="themenu_col text-center bg-white " style="border: dotted 2px black">
+
+                        <img src="images/aus.png">
+                        
+                        <a href="posts.html?country=australia&lang=en">
+                            <div class="themenu_col_title col-lg-6 mt-3 " data-aos="zoom-in-down" style="font-size: 25px">Australia</div>
+                        </a>
+                        <a href="posts.html?country=australia&lang=fa"><div class="themenu_col_title col-lg-5 mt-3" data-aos="zoom-in-down" style="font-size: 25px">استرالیا</div></a>
+
+
+                    </div>
+                </div>
+                <div class="col-lg-4 themenu_column" data-aos="flip-up">
+                    <div class="themenu_col text-center bg-white " style="border: dotted 2px black">
+
+                        <img src="images/canada.png">
+                        <a href="posts.html?country=canada&lang=en"><div class="themenu_col_title col-lg-6 mt-3" data-aos="zoom-in-down" style="font-size: 25px">Canada</div></a>
+                        <a href="posts.html?country=canada&lang=fa"><div class="themenu_col_title col-lg-5 mt-3" data-aos="zoom-in-down" style="font-size: 25px">کانادا</div></a>
+
+
+                    </div>
+                </div>
+                <div class="col-lg-4 themenu_column" data-aos="zoom-out-right">
+                    <div class="themenu_col text-center bg-white" style="border: dotted 2px black">
+
+                        <img src="images/newz.png">
+
+                       <a href="posts.html?country=newzealand&lang=en" ><div class="themenu_col_title col-lg-7 mt-3 " data-aos="zoom-in-down" style="padding-left: 10px !important;font-size: 25px">NewZealand</div></a>
+                        <a href="posts.html?country=newzealand&lang=fa"><div class="themenu_col_title col-lg-4 mt-3" data-aos="zoom-in-down" style="font-size: 25px">نیوزلند</div></a>
+
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+</div>
+            <div class="intro_title text-center container " data-aos="zoom-in-down"><h2 class="bg-white saheltitle" style="margin-bottom:0"> ــــــــ سایر کشورها ــــــــ</h2></div>
+        </div>
+<div class="bg-white row ">
+    <div class="col-lg-4">
+    <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+
+        <div class="carousel-inner text-dark font-weight-bold rounded " style="width: 20%;margin-left: 40%;border: dotted 2px black;font-size: 18px; box-shadow: 0px 0px 30px rgba(0,0,0,0.5);"  role="listbox">
+            <div class="carousel-item active"><a href="posts.html?country=switzerland&lang=fa">
+                <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded border-primary" src="images/swiss.png" alt="First slide">
+                <div class="card-title text-center saheltitle">سوئیس</div>
+            </a></div>
+            <div class="carousel-item"><a href="posts.html?country=hungary&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/hungary.png" alt="First slide">
+                    <div class="card-title text-center saheltitle">مجارستان</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=italy&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/italy.png" alt="Second slide">
+                    <div class="card-title text-center saheltitle">ایتالیا</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=cyprus&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/cyprus.png" alt="Second slide">
+                    <div class="card-title text-center saheltitle">قبرس</div>
+                </a></div>
+        </div>
+        <a class="carousel-control-prev " href="#carouselExampleIndicators" style="margin-left: 25%" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon bg-dark"  aria-hidden="true"></span>
+
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" style="margin-right: 25%" role="button" data-slide="next">
+            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+        </a>
+    </div>
+
+    </div>
+    <div class="col-lg-4">
+        <div id="carouselExampleIndicators2" class="carousel slide my-4" data-ride="carousel">
+
+            <div class="carousel-inner text-dark font-weight-bold rounded " style="width: 20%;margin-left: 40%;border: dotted 2px black;font-size: 18px;box-shadow: 0px 0px 30px rgba(0,0,0,0.5);"  role="listbox">
+                <div class="carousel-item active"><a href="posts.html?country=poland&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/poland.png" alt="Third slide">
+                    <div class="card-title text-center saheltitle">لهستان</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=sweden&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/sweden.png" alt="Third slide">
+                    <div class="card-title text-center saheltitle">سوئد</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=turkey&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/turkey.png" alt="First slide">
+                    <div class="card-title text-center saheltitle">ترکیه</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=spain&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/spain.png" alt="Third slide">
+                    <div class="card-title text-center saheltitle">اسپانیا</div>
+                </a></div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators2" style="margin-left: 25%" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators2" style="margin-right: 25%" role="button" data-slide="next">
+                <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div id="carouselExampleIndicators3" class="carousel slide my-4" data-ride="carousel">
+
+            <div class="carousel-inner text-dark font-weight-bold rounded " style="width: 20%;margin-left: 40% ;border: dotted 2px black;font-size: 18px;box-shadow: 0px 0px 30px rgba(0,0,0,0.5);"  role="listbox">
+                <div class="carousel-item active"><a href="posts.html?country=china&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/china.png" alt="First slide">
+                    <div class="card-title text-center saheltitle">چین</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=germany&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/germany.png" alt="Third slide">
+                    <div class="card-title text-center saheltitle">آلمان</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=russia&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/russia.png" alt="First slide">
+                    <div class="card-title text-center saheltitle">روسیه</div>
+                </a></div>
+                <div class="carousel-item"><a href="posts.html?country=unitedkingdom&lang=fa">
+                    <img style="width: 100%;padding: 5px " class="d-block img-fluid rounded" src="images/uk.png" alt="Third slide">
+                    <div class="card-title text-center saheltitle">انگلستان</div>
+                </a></div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators3" style="margin-left: 25%" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators3" style="margin-right: 25%;: 25%" role="button" data-slide="next">
+                <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+
+            </a>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+
+
+<div class="bgedited2">
+    <div class="row">
+        <div class="col">
+            <div class="themenu_title_bar_container">
+                <div class="themenu_stars text-center page_subtitle">Language Courses</div>
+
+                <div class="themenu_title_bar d-flex flex-column align-items-center justify-content-center">
+                    <div class="themenu_title ">دوره های زبان موسسه کندو</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/Languages.jpg" data-speed="0.8"  ></div>
+
+<div class="container" >
+
+    <div class="blog bg-transparent">
+
+            <div class="row">
+
+                <div class="col-lg-3 blog_col ">
+                    <div id="carouselExampleIndicators11" class="carousel slide my-4" data-ride="carousel">
+
+                        <div class="carousel-inner text-dark font-weight-bold "   role="listbox">
+                            <div class="carousel-item active pt-4"><a href="posts.html?lg=malta&lang=en">
+                                <div class="blog_post " data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/maltaLG.jpg" alt="https://unsplash.com/@patrick_schneider"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=malta&lang=en">Malta</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center "><a href="posts.html?lg=malta&lang=fa" style="font-size: 25px">دوره های زبان در مالتا</a></div>
+                                    </div>
+                                </div>
+                            </a></div>
+                            <div class="carousel-item pt-4"><a href="posts.html?lg=malta&lang=en">
+                                <div class="blog_post " data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/maltaLG.jpg" alt="https://unsplash.com/@patrick_schneider"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=malta&lang=en">Malta</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center "><a href="posts.html?lg=malta&lang=fa" style="font-size: 25px">دوره های زبان در مالتا</a></div>
+                                    </div>
+                                </div>
+                            </a></div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators11"  role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators11"  role="button" data-slide="next">
+                            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 blog_col "  style="margin-bottom: 150px">
+                    <div id="carouselExampleIndicators12" class="carousel slide my-4" data-ride="carousel">
+
+                        <div class="carousel-inner text-dark font-weight-bold "   role="listbox">
+                            <div class="carousel-item active pt-4"><a href="posts.html?lg=england&lang=en">
+                                <div class="blog_post" data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/engLG.jpg" alt="https://unsplash.com/@tashytown"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=england&lang=en">England</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center"><a href="posts.html?lg=england&lang=fa" style="font-size: 25px">دوره های زبان در انگلیس</a></div>
+
+                                    </div>
+                                </div>
+                            </a></div>
+                            <div class="carousel-item pt-4"><a href="posts.html?lg=england&lang=en">
+                                <div class="blog_post" data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/engLG.jpg" alt="https://unsplash.com/@tashytown"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=england&lang=en">England</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center"><a href="posts.html?lg=england&lang=fa" style="font-size: 25px">دوره های زبان در انگلیس</a></div>
+
+                                    </div>
+                                </div>
+                            </a></div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators12"  role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators12"  role="button" data-slide="next">
+                            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 blog_col ">
+                    <div id="carouselExampleIndicators13" class="carousel slide my-4" data-ride="carousel">
+
+                        <div class="carousel-inner text-dark font-weight-bold "   role="listbox">
+                            <div class="carousel-item active pt-4"><a href="posts.html?lg=malaysia&lang=en">
+                                <div class="blog_post" data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/malaysiaLG.jpg" alt="https://unsplash.com/@stefanjonhson"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=malaysia&lang=en">Malaysia</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center"><a href="posts.html?lg=malaysia&lang=fa" style="font-size: 25px">دوره های زبان در مالزی</a></div>
+
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+                            <div class="carousel-item pt-4"><a href="posts.html?lg=malaysia&lang=en">
+                                <div class="blog_post" data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/malaysiaLG.jpg" alt="https://unsplash.com/@stefanjonhson"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=malaysia&lang=en">Malaysia</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center"><a href="posts.html?lg=malaysia&lang=fa" style="font-size: 25px">دوره های زبان در مالزی</a></div>
+
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators13"  role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators13"  role="button" data-slide="next">
+                            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 blog_col ">
+                    <div id="carouselExampleIndicators14" class="carousel slide my-4" data-ride="carousel">
+
+                        <div class="carousel-inner text-dark font-weight-bold "   role="listbox">
+                            <div class="carousel-item active pt-4"><a href="posts.html?lg=swiss&lang=en">
+                                <div class="blog_post" data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/swissLG.jpg" alt="Jackelin Slack"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=swiss&lang=en">Swiss</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center"><a href="posts.html?lg=swiss&lang=fa" style="font-size: 25px">دوره های زبان در سوئیس</a></div>
+
+                                    </div>
+                                </div>
+                            </a></div>
+                            <div class="carousel-item pt-4"><a href="posts.html?lg=swiss&lang=en">
+                                <div class="blog_post" data-aos="fade-up"
+                                     data-aos-anchor-placement="bottom-bottom">
+                                    <div class="blog_post_image_container">
+                                        <div class="blog_post_image"><img src="images/swissLG.jpg" alt="Jackelin Slack"></div>
+                                        <div class="blog_post_date"><a href="posts.html?lg=swiss&lang=en">Swiss</a></div>
+                                    </div>
+                                    <div class="blog_post_content">
+                                        <div class="blog_post_title text-center"><a href="posts.html?lg=swiss&lang=fa" style="font-size: 25px">دوره های زبان در سوئیس</a></div>
+
+                                    </div>
+                                </div>
+                            </a></div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators14"  role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators14"  role="button" data-slide="next">
+                            <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-lg-3" style="max-height: 415px;overflow-y: scroll;overflow-x: hidden;">
+               <div class=""><h2 class="text-center saheltitle " data-aos="fade-right" data-aos-duration="500"> فهرست مقالات  </h2></div>
+                <div class="text-right ">
+                    <ul>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html">فهرست موسسات مجاز وزارت علوم </a></li>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html"> وزارت علوم و تحقیقات و فناوری</a></li>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html">دانشگاه تهران </a></li>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html"> تهران آیلتس</a></li>
+                        <li><a  class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html"> انجمن موسسات اعزام دانشجو</a></li>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html"> IELTS شرکت بین المللی ترجمه</a></li>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html"> ایی.تی.اس</a></li>
+                        <li><a class="btn btn-outline-dark mt-2 mr-4" data-aos="fade-right" data-aos-duration="500" href="content.html"> آی.دی.پی</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9" id="posts" style="max-height: 415px;overflow-y: scroll;">
+               <h2 class="text-center saheltitle" data-aos="fade-up">مجله ی خبری</h2>
+                
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="reservations text-center" id="contactus">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/Contact-Us.jpg" data-speed="0.8"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="reservations_content d-flex flex-column align-items-center justify-content-center">
+                        <div class="res_stars page_subtitle">CDS</div>
+                        <div class="res_title hov">با ما در ارتباط باشید</div>
+
+                        <div class="row mt-5 " >
+                            <div class="col-4 mp hov" >
+                                <div class="text-right text-white mt-3 " style="font-size: 20px;direction: rtl;font-weight: bold">
+
+                                        در شبکه های اجتماعی:
+
+                                </div>
+                                <div class="mt-2">
+                                    <a href="https://www.instagram.com/"><img src="images/instagram.png"></a>
+                                    <a href="https://t.me/"><img src="images/telegram.png"></a>
+                                </div>
+                            </div>
+                            <div class="col-4 text-right home_text ">
+                                <p class="hov" style="margin-bottom: -0.1% ;font-size: 12px">نشانی:ساری- میدان امام-ساختمان برلیان-طبقه اول-بالای بانک تجارت،واحد شماره 19</p>
+                                <p class="hov" style="font-size: 12px">لطفا قبل از آمدن به موسسه با کارشناسان موسسه تماس بگیرید</p>
+
+                            </div>
+                            <div class="col-4 text-right home_text" style="direction: rtl">
+                                <p class="hov" style="margin-bottom: -0.1%;font-size: 12px">موسسه اعزام دانشجو کندو دکتر عزیزی</p>
+                                <p class="hov" style="margin-bottom: -0.1%;font-size: 12px">با مجوز وزارت علوم</p>
+                                <p class="hov" style="margin-bottom: -0.1%;font-size: 12px">شماره های تماس جهت تعیین وقت</p>
+                                <p class="hov" style="margin-bottom: -0.1%;font-size: 12px">011333675000</p>
+                                <p class="hov" style="font-size: 12px">09030612326</p>
+
+                            </div>
+
+                        </div>
+                        <div class="button btn-outline-light text-light sig_button trans_200 "><a href="contact.html">تماس با ما</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer" >
+        <div class="container" >
+            <div class="row text-center" >
+
+                <div class="col-lg-6 ">
+                    <div class="footer_logo">
+
+
+                        <div class="footer_logo_title">CDS</div>
+                        <div class="footer_logo_subtitle">we build careers</div>
+                    </div>
+
+                </div>
+                <div class="home_text col-lg-6" style="margin-top: 20px;font-size: 11px">
+                    Design by:
+                    <a href="http://unixerr.com" class="mt-0">yucatán</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="styles/bootstrap-4.1.2/popper.js"></script>
+<script src="styles/bootstrap-4.1.2/bootstrap.min.js"></script>
+<script src="plugins/greensock/TweenMax.min.js"></script>
+<script src="plugins/greensock/TimelineMax.min.js"></script>
+<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="plugins/greensock/animation.gsap.min.js"></script>
+<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="plugins/easing/easing.js"></script>
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="plugins/colorbox/jquery.colorbox-min.js"></script>
+<script src="plugins/jquery-datepicker/jquery-ui.js"></script>
+<script src="plugins/jquery-timepicker/jquery.timepicker.js"></script>
+<script src="js/custom.js"></script>
+<script type="text/javascript">
+    $(window).on("load",function() {
+        $(window).scroll(function() {
+            var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+            $(".anima").each(function() {
+
+                var objectBottom = $(this).offset().top + $(this).outerHeight();
+
+
+                if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+                    if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+                } else { //object goes out of view (scrolling up)
+                    if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+                }
+            });
+        }).scroll();
+    });
+</script>
+<script>
+    AOS.init();
+</script>
+<script>
+
+    var svalue = ''
+    function gotosearch(){
+            window.location = `http://www.google.com.pk/search?btnG=1&pws=0&q=${svalue} site:cdsapply.com`
+            return true;       
+        }
+
+    window.onload=function(){
+
+        var input = document.getElementById("searchQ");
+        input.addEventListener("keydown", function(event) {
+          if (event.keyCode === 13) {
+            event.preventDefault();
+            svalue = input.value
+            document.getElementById("searchQbtn").click();
+          }
+        });
+    }
+</script>
+</body>
+</html>
