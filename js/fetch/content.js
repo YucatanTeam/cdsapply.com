@@ -2,15 +2,11 @@
 
 
 const urlParams = new URLSearchParams(window.location.search)
-const country = urlParams.get("slug")
-const lg = urlParams.get("lg")
+const slug = urlParams.get("slug")
+const id = urlParams.get("id")
 const lang = urlParams.get("lang")
 
-fetch_cmd = null
-if(country != '') fetch_cmd = fetch(`http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[country]=${country}`)
-if(lg != '') fetch_cmd = fetch(`http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[language_courses]=${lg}`)
 
-if(fetch_cmd){
     fetch(`http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[_id]=${id}`)
         .then(response => response.json())
         .then(posts => {
@@ -34,7 +30,4 @@ if(fetch_cmd){
 
             document.getElementById("main_backimg").setAttribute("data-image-src", "http://cdsapply.com:2017"+posts[0].logo.path)
         })
-} else{
-    window.location.replace = 'http://www.cdsapply.com'
-}
 
