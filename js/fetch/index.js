@@ -4,7 +4,6 @@ fetch('http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b
       .then(response => response.json())
       .then(posts => {
         posts = posts.entries
-        console.log(posts)
         var postsdiv = document.getElementById("posts")
         for(i = 0; i < posts.length; i++){
             if(posts[i].newsletter){
