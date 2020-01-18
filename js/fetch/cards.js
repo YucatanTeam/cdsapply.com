@@ -7,8 +7,8 @@ const lang = urlParams.get("lang")
 
 
 fetch_cmd = null
-if(country != '') fetch_cmd = fetch(`http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[country]=${country}`)
-if(lg != '') fetch_cmd = fetch(`http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[language_courses]=${lg}`)
+if(country != '' && !lg) fetch_cmd = fetch(`http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[country]=${country}`)
+if(lg != '' && !country) fetch_cmd = fetch(`http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[language_courses]=${lg}`)
 
 if(fetch_cmd){
     fetch_cmd
