@@ -29,8 +29,8 @@ fetch('http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b
                 var p = document.createElement("p")
                 divColLg10.appendChild(p)
                 p.setAttribute("data-aos", "fade-up")
-                var content = document.createTextNode('... '+posts[i].content.slice(0,80))
-                p.innerHTML(content)
+                p.innerHTML = posts[i].content
+                p.innerHTML = '... '+p.textContent.slice(0,80)
                 divRow.appendChild(divColLg10)
                 divRow.appendChild(divColLg2)
                 var aImg = document.createElement("a")
@@ -44,9 +44,6 @@ fetch('http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b
 
         }
       })
-      .catch(error => {
-            // loading gif ...
-       })
 
 // fetch seo
 fetch('http://cdsapply.com:2017/api/collections/get/seo?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[page]=index')
@@ -58,4 +55,24 @@ fetch('http://cdsapply.com:2017/api/collections/get/seo?token=account-3eb37339b9
         for(i = 0; i < seo[0].tags.length; i++){
             $('head').append(`<meta name="description" content=${seo[0].tags[i]}>`);
         }
+    })
+
+
+fetch('http://cdsapply.com:2017/api/collections/get/bestof?token=account-3eb37339b9641b90e3f0b73b7cedf6')
+    .then(response => response.json())
+    .then(bestof =>{
+        bestof = bestof.entries
+        bestofUl = document.getElementById("bestof")
+        for(i = 0; i < bestof.length; i++){
+            li = document.createElement("li")
+            link = document.createElement("a")
+            link.classList.add("btn", "btn-outline-dark", "mt-2", "mr-4")
+            link.setAttribute("data-aos", "fade-right")
+            link.setAttribute("data-aos-duration", "500")
+            link.href = bestof[i].link
+            link.appendChild(document.createTextNode(bestof[i].title))
+            li.appendChild(link)
+            bestofUl.appendChild(li)
+        }
+
     })

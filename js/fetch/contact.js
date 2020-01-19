@@ -3,7 +3,7 @@ fetch('http://cdsapply.com:2017/api/collections/get/contactUS?token=account-3eb3
     .then(response => response.json())
     .then(contactUS => {
         contactUS = contactUS.entries
-        document.getElementById("contactus").appendChild(document.createTextNode(contactUS[0].content))
+        document.getElementById("contactus").innerHTML = contactUS[0].content
     })
 
 // fetch seo
