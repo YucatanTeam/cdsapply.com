@@ -33,4 +33,3 @@ if(slug && id && (lang == 'en' || lang == 'fa')){
 } else{
     $(location).attr('href','http://cdsapply.com')
 }
-
