@@ -1,5 +1,5 @@
 
-fetch('http://cdsapply.com:2017/api/collections/get/contactUS?token=account-3eb37339b9641b90e3f0b73b7cedf6')
+fetch('https://panel.cdsapply.com:2017/api/collections/get/contactUS?token=account-3eb37339b9641b90e3f0b73b7cedf6')
     .then(response => response.json())
     .then(contactUS => {
         contactUS = contactUS.entries
@@ -7,7 +7,7 @@ fetch('http://cdsapply.com:2017/api/collections/get/contactUS?token=account-3eb3
     })
 
 // fetch seo
-fetch('http://cdsapply.com:2017/api/collections/get/seo?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[page]=contact')
+fetch('https://panel.cdsapply.com:2017/api/collections/get/seo?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[page]=contact')
     .then(response => response.json())
     .then(seo => {
         seo = seo.entries

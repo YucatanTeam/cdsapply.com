@@ -7,8 +7,8 @@ const lang = urlParams.get("lang")
 
 
 fetch_cmd = null
-if(country != '' && !lg) fetch_cmd = fetch(`http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[country]=${country}`)
-if(lg != '' && !country) fetch_cmd = fetch(`http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[language_courses]=${lg}`)
+if(country != '' && !lg) fetch_cmd = fetch(`https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[country]=${country}`)
+if(lg != '' && !country) fetch_cmd = fetch(`https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[language_courses]=${lg}`)
 
 if(fetch_cmd && (lang == 'en' || lang == 'fa')){
     fetch_cmd
@@ -16,7 +16,7 @@ if(fetch_cmd && (lang == 'en' || lang == 'fa')){
         .then(posts => {
         	var cards = document.getElementById("cards")
         	posts = posts.entries
-            if(posts.length==0) $(location).attr('href','http://cdsapply.com')
+            if(posts.length==0) $(location).attr('href','https://cdsapply.com')
         	if(lang == "fa") $('head').append(`<title> موسسه کندو  - CDS Apply | ${country}</title>`);
             if(lang == "en") $('head').append(`<title>CANDO Study Abroad Agency | ${country}</title>`);
             
@@ -28,7 +28,7 @@ if(fetch_cmd && (lang == 'en' || lang == 'fa')){
 
         		var cardImg = document.createElement("img")
         		cardImg.classList.add("card-img-top")
-        		cardImg.setAttribute("src", "http://cdsapply.com:2017"+posts[i].logo.path)
+        		cardImg.setAttribute("src", "https://panel.cdsapply.com:2017"+posts[i].logo.path)
 
         		var cardBody = document.createElement("div")
         		cardBody.classList.add("card-body")
@@ -54,7 +54,7 @@ if(fetch_cmd && (lang == 'en' || lang == 'fa')){
         			cardHeader.setAttribute("style", "font-weight: bold; font-size: 30px;")
         			cardContent.innerHTML = posts[i].en_content
                     cardContent.innerHTML = cardContent.textContent.slice(0,80) + ' ...'
-        			cardLink.href = "http://cdsapply.com/content.html?slug="+posts[i].en_slug+"&id="+posts[i]._id+"&lang=en"
+        			cardLink.href = "https://cdsapply.com/content.html?slug="+posts[i].en_slug+"&id="+posts[i]._id+"&lang=en"
         			cardLink.appendChild(document.createTextNode("Read More"))
                     cardLink.setAttribute("style", "margin-top: 15px;")
         		}
@@ -69,7 +69,7 @@ if(fetch_cmd && (lang == 'en' || lang == 'fa')){
         			cardContent.innerHTML = posts[i].content
                     cardContent.innerHTML = '... '+cardContent.textContent.slice(0,80)
         			cardContent.setAttribute("style", "float: right;")
-        			cardLink.href = "http://cdsapply.com/content.html?slug="+posts[i].slug+"&id="+posts[i]._id+"&lang=fa"
+        			cardLink.href = "https://cdsapply.com/content.html?slug="+posts[i].slug+"&id="+posts[i]._id+"&lang=fa"
         			cardLink.appendChild(document.createTextNode("ادامه مطلب"))
         			cardLink.setAttribute("style", "float: right; margin-top: 15px;")
         		}
@@ -84,5 +84,5 @@ if(fetch_cmd && (lang == 'en' || lang == 'fa')){
         	}
         })
 } else{
-    $(location).attr('href','http://cdsapply.com')
+    $(location).attr('href','https://cdsapply.com')
 }

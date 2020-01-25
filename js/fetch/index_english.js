@@ -1,6 +1,6 @@
 
 // fetch posts
-fetch('http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6')
+fetch('https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6')
       .then(response => response.json())
       .then(posts => {
         posts = posts.entries
@@ -25,7 +25,7 @@ fetch('http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b
                 h4.appendChild(aTitle)
                 var link = document.createTextNode(posts[i].en_title)
                 aTitle.appendChild(link)
-                aTitle.href = "http://cdsapply.com/content.html?slug="+posts[i].en_slug+"&id="+posts[i]._id+"&lang=en"
+                aTitle.href = "https://cdsapply.com/content.html?slug="+posts[i].en_slug+"&id="+posts[i]._id+"&lang=en"
                 var p = document.createElement("p")
                 divColLg10.appendChild(p)
                 p.setAttribute("data-aos", "fade-up")
@@ -35,7 +35,7 @@ fetch('http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b
                 divRow.appendChild(divColLg10)
                 var aImg = document.createElement("a")
                 divColLg2.appendChild(aImg)
-                aImg.href = "http://cdsapply.com/content.html?slug="+posts[i].en_slug+"&id="+posts[i]._id+"&lang=en"
+                aImg.href = "https://cdsapply.com/content.html?slug="+posts[i].en_slug+"&id="+posts[i]._id+"&lang=en"
                 var img = document.createElement("img")
                 img.setAttribute("style", "width: 100%")
                 img.setAttribute("src", "http://cdsapply.com:2017"+posts[i].logo.path)
@@ -46,7 +46,7 @@ fetch('http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b
       })
 
 // fetch seo
-fetch('http://cdsapply.com:2017/api/collections/get/seo?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[page]=index_en')
+fetch('https://panel.cdsapply.com:2017/api/collections/get/seo?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[page]=index_en')
     .then(response => response.json())
     .then(seo => {
         seo = seo.entries
@@ -57,7 +57,7 @@ fetch('http://cdsapply.com:2017/api/collections/get/seo?token=account-3eb37339b9
         }
     })
 
-fetch('http://cdsapply.com:2017/api/collections/get/bestof?token=account-3eb37339b9641b90e3f0b73b7cedf6')
+fetch('https://panel.cdsapply.com:2017/api/collections/get/bestof?token=account-3eb37339b9641b90e3f0b73b7cedf6')
     .then(response => response.json())
     .then(bestof =>{
         bestof = bestof.entries

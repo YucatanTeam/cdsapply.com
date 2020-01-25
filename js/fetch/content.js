@@ -7,10 +7,10 @@ const id = urlParams.get("id")
 const lang = urlParams.get("lang")
 
 if(slug && id && (lang == 'en' || lang == 'fa')){
-    fetch(`http://cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[_id]=${id}`)
+    fetch(`https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[_id]=${id}`)
         .then(response => response.json())
         .then(posts => {
-            document.getElementById("main_backimg").setAttribute("data-image-src", "http://cdsapply.com:2017"+posts[0].logo.path)
+            document.getElementById("main_backimg").setAttribute("data-image-src", "https://panel.cdsapply.com:2017"+posts[0].logo.path)
             posts = posts.entries
             	 $('meta[name=description]').remove();
             	 $('title').remove();
@@ -31,5 +31,5 @@ if(slug && id && (lang == 'en' || lang == 'fa')){
 
         })
 } else{
-    $(location).attr('href','http://cdsapply.com')
+    $(location).attr('href','https://cdsapply.com')
 }

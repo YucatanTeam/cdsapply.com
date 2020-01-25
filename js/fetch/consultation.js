@@ -1,7 +1,7 @@
 
 
 // fetch seo
-fetch('http://cdsapply.com:2017/api/collections/get/seo?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[page]=consultation')
+fetch('https://panel.cdsapply.com:2017/api/collections/get/seo?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[page]=consultation')
     .then(response => response.json())
     .then(seo => {
         seo = seo.entries

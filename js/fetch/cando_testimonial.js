@@ -1,6 +1,6 @@
 
 // fetch testimonial
-fetch('http://cdsapply.com:2017/api/collections/get/testimonial?token=account-3eb37339b9641b90e3f0b73b7cedf6')
+fetch('https://panel.cdsapply.com:2017/api/collections/get/testimonial?token=account-3eb37339b9641b90e3f0b73b7cedf6')
     .then(response => response.json())
     .then(testimonial => {
         testimonial = testimonial.entries
@@ -12,7 +12,7 @@ fetch('http://cdsapply.com:2017/api/collections/get/testimonial?token=account-3e
     })
 
 // fetch seo
-fetch('http://cdsapply.com:2017/api/collections/get/seo?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[page]=cando-testimonial')
+fetch('https://panel.cdsapply.com:2017/api/collections/get/seo?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[page]=cando-testimonial')
     .then(response => response.json())
     .then(seo => {
         seo = seo.entries
