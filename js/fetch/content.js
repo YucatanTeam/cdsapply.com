@@ -11,6 +11,7 @@ if(slug && id && (lang == 'en' || lang == 'fa')){
         .then(response => response.json())
         .then(posts => {
             posts = posts.entries
+            console.log(posts[0])
             document.getElementById("main_backimg").setAttribute("data-image-src", "https://panel.cdsapply.com:2017"+posts[0].logo.path)
             	 $('meta[name=description]').remove();
             	 $('title').remove();

@@ -6,7 +6,7 @@ fetch('https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3e
         posts = posts.entries
         var postsdiv = document.getElementById("posts")
         for(i = 0; i < posts.length; i++){
-            if(posts[i].newsletter){
+            if(posts[i].newsletter && posts[i].title){
                 var divRow = document.createElement("div")
                 divRow.classList.add("row")
                 var divColLg10 = document.createElement("div")
