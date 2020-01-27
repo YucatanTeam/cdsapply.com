@@ -5,8 +5,9 @@ fetch('https://panel.cdsapply.com:2017/api/collections/get/testimonial?token=acc
     .then(testimonial => {
         testimonial = testimonial.entries
         var div = document.createElement("div")
-        div.appendChild(document.createTextNode(testimonial[0].content))
+        div.innerHTML = testimonial[0].content
         div.setAttribute("style", "font-size:18px")
+        div.setAttribute("dir", "rtl")
         div.setAttribute("data-aos", "fade-left")
         document.getElementById("testimonial").appendChild(div)
     })

@@ -12,8 +12,8 @@ if(slug && id && (lang == 'en' || lang == 'fa')){
         .then(posts => {
             posts = posts.entries
             background_image = "https://panel.cdsapply.com:2017"+posts[0].background_head.path
-            if( background_image) document.getElementById("main_backimg").setAttribute("style", `background-image: url(${background_image}); background-repeat: no-repeat`)
-            if(!background_image) document.getElementById("main_backimg").setAttribute("style", "background-image: url(images/background.jpg);background-repeat: no-repeat")
+            if( background_image) document.getElementById("main_backimg").setAttribute("style", `background-image: url(${background_image}); background-repeat: no-repeat;background-position: 50% 50%; max-width: 100%; background-size:cover;`)
+            if(!background_image) document.getElementById("main_backimg").setAttribute("style", "background-image: url(images/background.jpg);background-repeat: no-repeat;background-position: 50% 50%; max-width: 100%; background-size:cover;")
             	 $('meta[name=description]').remove();
             	 $('title').remove();
         		 $('head').append(`<meta name="description" content=${posts[0].tags.join()}>`);
