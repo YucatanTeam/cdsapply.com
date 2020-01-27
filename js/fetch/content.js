@@ -23,10 +23,12 @@ if(slug && id && (lang == 'en' || lang == 'fa')){
             if(lang == "fa"){
         		$('head').append(`<title>موسسه کندو  - CDS Apply | ${posts[0].title}</title>`);
             	document.getElementById('content').innerHTML = posts[0].content
+                document.getElementById('content').setAttribute("dir", "rtl")
             }
             if (lang == "en"){
             	$('head').append(`<title>CANDO Study Abroad Agency | ${posts[0].en_title}</title>`);
             	document.getElementById('content').innerHTML = posts[0].en_content
+                document.getElementById('content').setAttribute("dir", "ltr")
 
             }
 
