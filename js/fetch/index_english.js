@@ -38,7 +38,7 @@ fetch('https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3e
                 aImg.href = "https://cdsapply.com/content.html?slug="+posts[i].en_slug+"&id="+posts[i]._id+"&lang=en"
                 var img = document.createElement("img")
                 img.setAttribute("style", "width: 100%")
-                img.setAttribute("src", "http://cdsapply.com:2017"+posts[i].logo.path)
+                img.setAttribute("src", "https://panel.cdsapply.com:2017"+posts[i].logo.path)
                 aImg.appendChild(img)                       
             }
 
