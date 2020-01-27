@@ -11,8 +11,9 @@ if(slug && id && (lang == 'en' || lang == 'fa')){
         .then(response => response.json())
         .then(posts => {
             posts = posts.entries
-            console.log(posts[0])
-            document.getElementById("main_backimg").setAttribute("data-image-src", "https://panel.cdsapply.com:2017"+posts[0].logo.path)
+            background_image = "https://panel.cdsapply.com:2017"+posts[0].background_head.path
+            if( background_image) document.getElementById("main_backimg").setAttribute("style", `background-image: url(${background_image}); background-repeat: no-repeat`)
+            if(!background_image) document.getElementById("main_backimg").setAttribute("style", "background-image: url(images/background.jpg);background-repeat: no-repeat")
             	 $('meta[name=description]').remove();
             	 $('title').remove();
         		 $('head').append(`<meta name="description" content=${posts[0].tags.join()}>`);
