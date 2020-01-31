@@ -35,7 +35,7 @@ if(slug && id && (lang == 'en' || lang == 'fa')){
             	document.getElementById('content').innerHTML = posts[0].en_content
                 document.getElementById('content').setAttribute("dir", "ltr")
                 for(i = 0; i < images.length; i++){
-                    document.getElementById('content').getElementsByTagName('img')[i].src.replace('cdsapply.com',  'panel.cdsapply.com:2017')
+                    document.getElementById('content').getElementsByTagName('img')[i].src.replace('https://',  'https://panel.cdsapply.com:2017')
                 }
 
             }
