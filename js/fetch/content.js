@@ -28,7 +28,7 @@ if(slug && id && (lang == 'en' || lang == 'fa')){
                 images = document.getElementById('content').getElementsByTagName('img')
                 for(i = 0; i < images.length; i++){
                     IMGsrc = document.getElementById('content').getElementsByTagName('img')[i].src
-                    IMGsrc = IMGsrc.replace('file:///C:',  'https://panel.cdsapply.com:2017')
+                    IMGsrc = IMGsrc.replace('https://cdsapply.com',  'https://panel.cdsapply.com:2017')
                     document.getElementById('content').getElementsByTagName('img')[i].setAttribute("src", IMGsrc)
                 }
             }
@@ -38,7 +38,7 @@ if(slug && id && (lang == 'en' || lang == 'fa')){
                 document.getElementById('content').setAttribute("dir", "ltr")
                 for(i = 0; i < images.length; i++){
                     IMGsrc = document.getElementById('content').getElementsByTagName('img')[i].src
-                    IMGsrc = IMGsrc.replace('file:///C:',  'https://panel.cdsapply.com:2017')
+                    IMGsrc = IMGsrc.replace('https://cdsapply.com',  'https://panel.cdsapply.com:2017')
                     document.getElementById('content').getElementsByTagName('img')[i].setAttribute("src", IMGsrc)
                 }
 
