@@ -57,7 +57,7 @@ if(fetch_cmd && (lang == 'en' || lang == 'fa')){
         			cardLink.href = "https://cdsapply.com/content.html?slug="+posts[i].en_slug+"&id="+posts[i]._id+"&lang=en"
         			cardLink.appendChild(document.createTextNode("Read More"))
                     cardLink.setAttribute("style", "margin-top: 15px;")
-        		}
+        		} else $(location).attr('href','https://cdsapply.com')
         		if(lang == "fa" && posts[i].title != ""){
         			$('head').append(`<meta name="description" content=${posts[i].tags.join()}>`);
         			for(j = 0; j < posts[i].tags.length; j++){
@@ -72,7 +72,7 @@ if(fetch_cmd && (lang == 'en' || lang == 'fa')){
         			cardLink.href = "https://cdsapply.com/content.html?slug="+posts[i].slug+"&id="+posts[i]._id+"&lang=fa"
         			cardLink.appendChild(document.createTextNode("ادامه مطلب"))
         			cardLink.setAttribute("style", "float: right; margin-top: 15px;")
-        		}
+        		} else $(location).attr('href','https://cdsapply.com')
 
         		container.appendChild(cardImg)
         		container.appendChild(cardBody)
