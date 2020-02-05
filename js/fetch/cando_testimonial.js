@@ -10,6 +10,12 @@ fetch('https://panel.cdsapply.com:2017/api/collections/get/testimonial?token=acc
         div.setAttribute("dir", "rtl")
         div.setAttribute("data-aos", "fade-left")
         document.getElementById("testimonial").appendChild(div)
+        images = document.getElementById('testimonial').getElementsByTagName('img')
+        for(i = 0; i < images.length; i++){
+            IMGsrc = document.getElementById('testimonial').getElementsByTagName('img')[i].src
+            IMGsrc = IMGsrc.replace('https://cdsapply.com',  'https://panel.cdsapply.com:2017')
+            document.getElementById('testimonial').getElementsByTagName('img')[i].setAttribute("src", IMGsrc)
+        }
     })
 
 // fetch seo

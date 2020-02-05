@@ -4,6 +4,12 @@ fetch('https://panel.cdsapply.com:2017/api/collections/get/contactUS?token=accou
     .then(contactUS => {
         contactUS = contactUS.entries
         document.getElementById("contactus").innerHTML = contactUS[0].content
+        images = document.getElementById('contactus').getElementsByTagName('img')
+        for(i = 0; i < images.length; i++){
+            IMGsrc = document.getElementById('contactus').getElementsByTagName('img')[i].src
+            IMGsrc = IMGsrc.replace('https://cdsapply.com',  'https://panel.cdsapply.com:2017')
+            document.getElementById('contactus').getElementsByTagName('img')[i].setAttribute("src", IMGsrc)
+        }
     })
 
 // fetch seo
