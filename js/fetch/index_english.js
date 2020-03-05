@@ -4,45 +4,43 @@ fetch('https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3e
       .then(response => response.json())
       .then(posts => {
         posts = posts.entries
-        var postsdiv = document.getElementById("posts")
-        for(i = 0; i < posts.length; i++){
-            if(posts[i].newsletter && posts[i].en_title){
-                var divRow = document.createElement("div")
-                divRow.classList.add("row")
-                var divColLg10 = document.createElement("div")
-                divColLg10.classList.add("col-lg-10")
-                var divTextRight = document.createElement("div")
-                divTextRight.classList.add("text-left", "mt-1")
-                postsdiv.appendChild(divTextRight)
-                divTextRight.appendChild(divRow)
-                var divColLg2 = document.createElement("div")
-                divColLg2.setAttribute("data-aos", "fade-up")
-                divColLg2.classList.add("col-lg-2")                
-                var h4 = document.createElement("h4")
-                divColLg10.appendChild(h4)
-                h4.setAttribute("data-aos", "fade-up")
-                var aTitle = document.createElement("a")
-                h4.appendChild(aTitle)
-                var link = document.createTextNode(posts[i].en_title)
-                aTitle.appendChild(link)
-                aTitle.href = "https://cdsapply.com/content.html?slug="+posts[i].en_slug+"&id="+posts[i]._id+"&lang=en"
-                var p = document.createElement("p")
-                divColLg10.appendChild(p)
-                p.setAttribute("data-aos", "fade-up")
-                p.innerHTML = posts[i].en_content
-                p.innerHTML = p.textContent.slice(0,80)+' ...'
-                divRow.appendChild(divColLg2)
-                divRow.appendChild(divColLg10)
-                var aImg = document.createElement("a")
-                divColLg2.appendChild(aImg)
-                aImg.href = "https://cdsapply.com/content.html?slug="+posts[i].en_slug+"&id="+posts[i]._id+"&lang=en"
-                var img = document.createElement("img")
-                img.setAttribute("style", "width: 100%")
-                img.setAttribute("src", "https://panel.cdsapply.com:2017"+posts[i].logo.path)
-                aImg.appendChild(img)                       
-            }
+        if((posts[0].newsletter && posts[0].en_title) && 
+                (posts[1].newsletter && posts[1].en_title) &&
+                (posts[2].newsletter && posts[2].en_title) &&
+                (posts[3].newsletter && posts[3].en_title)){
 
-        }
+                 
+                $(".linkpost1").href = "https://cdsapply.com/content.html?slug="+posts[0].en_slug+"&id="+posts[0]._id+"&lang=en"
+                $(".linkpost1__F").append(posts[0].en_title)
+                p = document.getElementById("paragpost1") 
+                p.innerHTML = posts[0].en_content
+                p.innerHTML = '... '+p.textContent.slice(0,80)
+                document.getElementById("imgpost1").setAttribute("src", "https://panel.cdsapply.com:2017"+posts[0].logo.path)
+
+                a = document.getElementsByClassName("linkpost2") 
+                $(".linkpost2").href = "https://cdsapply.com/content.html?slug="+posts[1].en_slug+"&id="+posts[1]._id+"&lang=en"
+                $(".linkpost2__F").append(posts[1].en_title)
+                p = document.getElementById("paragpost2") 
+                p.innerHTML = posts[1].en_content
+                p.innerHTML = '... '+p.textContent.slice(0,80)
+                document.getElementById("imgpost2").setAttribute("src", "https://panel.cdsapply.com:2017"+posts[1].logo.path)
+
+                a = document.getElementsByClassName("linkpost3") 
+                $(".linkpost3").href = "https://cdsapply.com/content.html?slug="+posts[2].en_slug+"&id="+posts[2]._id+"&lang=en"
+                $(".linkpost3__F").append(posts[2].en_title)
+                p = document.getElementById("paragpost3") 
+                p.innerHTML = posts[2].en_content
+                p.innerHTML = '... '+p.textContent.slice(0,80)
+                document.getElementById("imgpost3").setAttribute("src", "https://panel.cdsapply.com:2017"+posts[2].logo.path)
+
+                a = document.getElementsByClassName("linkpost4") 
+                $(".linkpost4").href = "https://cdsapply.com/content.html?slug="+posts[3].en_slug+"&id="+posts[3]._id+"&lang=en"
+                $(".linkpost4__F").append(posts[3].en_title)
+                p = document.getElementById("paragpost4") 
+                p.innerHTML = posts[3].en_content
+                p.innerHTML = '... '+p.textContent.slice(0,80)
+                document.getElementById("imgpost4").setAttribute("src", "https://panel.cdsapply.com:2017"+posts[3].logo.path)
+            }
       })
 
 // fetch seo
