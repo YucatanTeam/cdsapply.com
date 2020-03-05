@@ -196,7 +196,7 @@
         }
     }
     .hov:hover {
-        color: #FFCD05;
+        color: #ffce00;
     }
     @media screen and (max-width: 600px) {
         .hid {
@@ -348,17 +348,17 @@
 
 
     <div class="home">
-        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/background.jpg" data-speed="1.2"></div>
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/background.jpg" data-speed="0.3"></div>
         <div class="home_container text-center">
             <div class="container">
                 <div class="row">
                     <div class="col">
                         <div class="home_content text-center">
                             <div style="width: 100%"><div style="width: 50%;margin-top: -30%;margin-bottom: -10%;margin-left: 25%" class="hover09 "> <figure><img width="100%"   src="images/logo.png"></figure></div></div>
-                            <div class="home_title"><h1 class="saheltitle hov">موسسه اعزام دانشجو</h1></div>
-                            <div class="home_title"><h1 class="saheltitle hov">کندو دانش آوران سام</h1></div>
+                            <div class="home_title"><h1 class="saheltitle hov" style="text-shadow: 3px 3px #000000;">موسسه اعزام دانشجو</h1></div>
+                            <div class="home_title"><h1 class="saheltitle hov" style="text-shadow: 3px 3px #000000;">کندو دانش آوران سام</h1></div>
                             <div class="home_text ml-auto mr-auto">
-                                <p class="hov">مهاجرت تحصیلی به کانادا، استرالیا، نیوزیلند و سایر کشور ها</p>
+                                <p class="hov" style="text-shadow: 1px 1px #000000; font-size: 22px;">مهاجرت تحصیلی به کانادا، استرالیا، نیوزیلند و سایر کشور ها</p>
                             </div>
                         </div>
                     </div>
@@ -506,7 +506,7 @@
                 </div>
             </div>
         </div>
-        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/World.jpg" data-speed="1.25" style="background-repeat: no-repeat;background-position: 50% 50%; max-width: 100%; background-size:cover;"></div>
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/World.jpg" data-speed="0.2" style="background-repeat: no-repeat;background-position: 50% 50%; max-width: 100%; background-size:cover;"></div>
         <div class="container">
         <div class="themenu bg-transparent">
             <div class="row themenu_row ">
@@ -938,9 +938,13 @@
         </div>
     </div>
 
-    <div class="reservations text-center" id="contactus">
-        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/Contact-Us.jpg" data-speed="0.8"></div>
-        <div class="container">
+    <div class="reservations text-center" id="contactus" style="
+                   background-image: url(images/Contact-Us.jpg);
+                   background-position: center center;
+                   background-repeat: no-repeat;
+                   background-attachment: fixed;
+                   background-size: cover;">
+        <div class="container" >
             <div class="row">
                 <div class="col">
                     <div class="reservations_content d-flex flex-column align-items-center justify-content-center">
