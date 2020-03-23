@@ -1244,3 +1244,17 @@ section
 {
 	white-space: nowrap;
 }
+
+@media (max-width:768px){
+	.mt-2 img {
+		width: 25px;
+	}
+	.mt-2 {
+		width: 200px;
+		margin-left: unset !important;
+	}
+	.mt-2 a {
+		float: left;
+		margin-left: 10px;
+	}
+}
