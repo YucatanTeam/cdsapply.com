@@ -6,7 +6,7 @@ const lang = urlParams.get("lang")
 
 
 fetch_cmd = null
-if(country != '') fetch_cmd = fetch(`https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[country]=${country}`)
+if(country != '') fetch_cmd = fetch(`https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&filter[country]=${country}&sort[_created]=-1&limit=4`)
 
 if(fetch_cmd && (lang == 'en' || lang == 'fa')){
     fetch_cmd
@@ -42,7 +42,6 @@ if(fetch_cmd && (lang == 'en' || lang == 'fa')){
 
 
         		if(lang == "en" && posts[i].en_title != ""){
-
     	    		$('head').append(`<meta name="description" content=${posts[i].tags.join()}>`);
     	    		for(j = 0; j < posts[i].tags.length; j++){
     		            $('head').append(`<meta name="description" content=${posts[i].tags[i]}>`);
@@ -56,7 +55,7 @@ if(fetch_cmd && (lang == 'en' || lang == 'fa')){
         			cardLink.appendChild(document.createTextNode("Read More"))
                     cardLink.setAttribute("style", "margin-top: 15px;")
         		}
-        		if(lang == "fa" && posts[i].title != ""){
+        		else if(lang == "fa" && posts[i].title != ""){
         			$('head').append(`<meta name="description" content=${posts[i].tags.join()}>`);
         			for(j = 0; j < posts[i].tags.length; j++){
     		            $('head').append(`<meta name="description" content=${posts[i].tags[i]}>`);
@@ -70,7 +69,9 @@ if(fetch_cmd && (lang == 'en' || lang == 'fa')){
         			cardLink.href = "https://cdsapply.com/content.html?slug="+posts[i].slug+"&id="+posts[i]._id+"&lang=fa"
         			cardLink.appendChild(document.createTextNode("ادامه مطلب"))
         			cardLink.setAttribute("style", "float: right; margin-top: 15px;")
-        		}
+        		} else{
+                    $(location).attr('href','https://cdsapply.com')
+                }
 
         		container.appendChild(cardImg)
         		container.appendChild(cardBody)

@@ -10,32 +10,36 @@ fetch('https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3e
                 (posts[3].newsletter && posts[3].en_title)){
 
                  
-                $(".linkpost1").href = "https://cdsapply.com/content.html?slug="+posts[0].en_slug+"&id="+posts[0]._id+"&lang=en"
+                $(".linkpost1").attr("href", "https://cdsapply.com/content.html?slug="+posts[0].en_slug+"&id="+posts[0]._id+"&lang=en")
                 $(".linkpost1__F").append(posts[0].en_title)
+                $(".linkpost1__F").attr("href", "https://cdsapply.com/content.html?slug="+posts[0].en_slug+"&id="+posts[0]._id+"&lang=en")
                 p = document.getElementById("paragpost1") 
                 p.innerHTML = posts[0].en_content
                 p.innerHTML = '... '+p.textContent.slice(0,80)
                 document.getElementById("imgpost1").setAttribute("src", "https://panel.cdsapply.com:2017"+posts[0].logo.path)
 
-                a = document.getElementsByClassName("linkpost2") 
-                $(".linkpost2").href = "https://cdsapply.com/content.html?slug="+posts[1].en_slug+"&id="+posts[1]._id+"&lang=en"
+                
+                $(".linkpost2").attr("href", "https://cdsapply.com/content.html?slug="+posts[1].en_slug+"&id="+posts[1]._id+"&lang=en")
                 $(".linkpost2__F").append(posts[1].en_title)
+                $(".linkpost2__F").attr("href", "https://cdsapply.com/content.html?slug="+posts[1].en_slug+"&id="+posts[1]._id+"&lang=en")
                 p = document.getElementById("paragpost2") 
                 p.innerHTML = posts[1].en_content
                 p.innerHTML = '... '+p.textContent.slice(0,80)
                 document.getElementById("imgpost2").setAttribute("src", "https://panel.cdsapply.com:2017"+posts[1].logo.path)
 
-                a = document.getElementsByClassName("linkpost3") 
-                $(".linkpost3").href = "https://cdsapply.com/content.html?slug="+posts[2].en_slug+"&id="+posts[2]._id+"&lang=en"
+                 
+                $(".linkpost3").attr("href", "https://cdsapply.com/content.html?slug="+posts[2].en_slug+"&id="+posts[2]._id+"&lang=en")
                 $(".linkpost3__F").append(posts[2].en_title)
+                $(".linkpost3__F").attr("href", "https://cdsapply.com/content.html?slug="+posts[2].en_slug+"&id="+posts[2]._id+"&lang=en")
                 p = document.getElementById("paragpost3") 
                 p.innerHTML = posts[2].en_content
                 p.innerHTML = '... '+p.textContent.slice(0,80)
                 document.getElementById("imgpost3").setAttribute("src", "https://panel.cdsapply.com:2017"+posts[2].logo.path)
 
-                a = document.getElementsByClassName("linkpost4") 
-                $(".linkpost4").href = "https://cdsapply.com/content.html?slug="+posts[3].en_slug+"&id="+posts[3]._id+"&lang=en"
+ 
+                $(".linkpost4").attr("href", "https://cdsapply.com/content.html?slug="+posts[3].en_slug+"&id="+posts[3]._id+"&lang=en")
                 $(".linkpost4__F").append(posts[3].en_title)
+                $(".linkpost4__F").attr("href", "https://cdsapply.com/content.html?slug="+posts[3].en_slug+"&id="+posts[3]._id+"&lang=en")
                 p = document.getElementById("paragpost4") 
                 p.innerHTML = posts[3].en_content
                 p.innerHTML = '... '+p.textContent.slice(0,80)
