@@ -32,6 +32,24 @@
         src:url("font/Sahel.ttf");
     }
 
+     @font-face{
+        font-family: MontserratThin;
+        src:url("font/Montserrat-Thin.ttf");
+    }
+
+    @font-face{
+        font-family: MontserratReg;
+        src:url("font/Montserrat-Regular.ttf");
+    }
+
+    .__footerFont{
+        font-family: MontserratThin;
+    }
+
+    .__footerCDSApply{
+        font-family: MontserratReg
+    }
+
     p{
         font-family: myFirstFont;
         font-size: 16px;
@@ -286,8 +304,13 @@
                     <div class="header_content d-flex flex-row align-items-center justify-content-start textrtl ">
                         <div class="logo">
                             <a href="https://cdsapply.com">
-                                <div class="text-center">CDS Apply</div>
-                                <div>we build careers</div>
+                                <div class="text-center">
+                                    <img style="width: 12rem !important;
+                                                height: 7rem !important;" 
+                                         class="logo-navbar"
+                                         src="images/ci.png">
+                                </div>
+                                <!-- <div>we build careers</div> -->
                             </a>
                         </div>
                         <nav class="main_nav" style="margin-left: 23%">
@@ -477,8 +500,8 @@
                     <div class="footer_logo">
 
 
-                        <div class="footer_logo_title">CDS Apply</div>
-                        <div class="footer_logo_subtitle">we build careers</div>
+                        <div class="footer_logo_title __footerCDSApply">CDS Apply</div>
+                        <div class="footer_logo_subtitle __footerFont">we build careers</div>
                     </div>
 
                 </div>
