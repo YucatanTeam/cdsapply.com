@@ -1,10 +1,10 @@
 
 // fetch posts
-fetch('https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6')
+fetch(`https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3eb37339b9641b90e3f0b73b7cedf6&sort[_created]=-1&limit=4&filter[newsletter]=${true}`)
       .then(response => response.json())
       .then(posts => {
         posts = posts.entries
-        if((posts[0].newsletter && posts[0].en_title) && 
+            if((posts[0].newsletter && posts[0].en_title) && 
                 (posts[1].newsletter && posts[1].en_title) &&
                 (posts[2].newsletter && posts[2].en_title) &&
                 (posts[3].newsletter && posts[3].en_title)){
