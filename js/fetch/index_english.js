@@ -8,8 +8,9 @@ fetch(`https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3e
                 (posts[1].newsletter && posts[1].en_title) &&
                 (posts[2].newsletter && posts[2].en_title) &&
                 (posts[3].newsletter && posts[3].en_title)){
+                
 
-                 
+                $("#loading").hide()
                 $(".linkpost1").attr("href", "https://cdsapply.com/content.html?slug="+posts[0].en_slug+"&id="+posts[0]._id+"&lang=en")
                 $(".linkpost1__F").append(posts[0].en_title)
                 $(".linkpost1__F").attr("href", "https://cdsapply.com/content.html?slug="+posts[0].en_slug+"&id="+posts[0]._id+"&lang=en")
@@ -44,6 +45,8 @@ fetch(`https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3e
                 p.innerHTML = posts[3].en_content
                 p.innerHTML = '... '+p.textContent.slice(0,80)
                 document.getElementById("imgpost4").setAttribute("src", "https://panel.cdsapply.com:2017"+posts[3].logo.path)
+            } else{
+                $("#loading").show()
             }
       })
 
