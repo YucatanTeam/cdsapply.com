@@ -77,8 +77,9 @@ if(fetch_cmd && (lang == 'en' || lang == 'fa')){
                     thDiv.innerHTML = posts[i].content
                     thDiv.innerHTML = thDiv.textContent.slice(0,80)+'...'
         			cardLink.href = "https://cdsapply.com/content.html?slug="+posts[i].slug+"&id="+posts[i]._id+"&lang=fa"
+                    cardLink.classList.add("text-right")
                     cardTime.setAttribute("style", "float: right")
-                    thDiv.setAttribute("style", "direction: rtl") // TODO : fix the floating font issue!!!!!!
+                    thDiv.setAttribute("style", "direction: rtl")
                     cardHeader.setAttribute("style", "float: right")
         		
                 } else{
