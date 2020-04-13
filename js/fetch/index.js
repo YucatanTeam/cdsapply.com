@@ -9,7 +9,8 @@ fetch(`https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3e
                 (posts[2].newsletter && posts[2].title) &&
                 (posts[3].newsletter && posts[3].title)){
 
-                 
+
+                document.getElementById("cont__btn").style.display = "block"
                 $(".linkpost1").attr("href", "https://cdsapply.com/content.html?slug="+posts[0].slug+"&id="+posts[0]._id+"&lang=fa")
                 $(".linkpost1__F").append(posts[0].title)
                 $(".linkpost1__F").attr("href", "https://cdsapply.com/content.html?slug="+posts[0].slug+"&id="+posts[0]._id+"&lang=fa")

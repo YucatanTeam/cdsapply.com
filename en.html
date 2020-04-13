@@ -286,7 +286,9 @@
                             <a href="https://cdsapply.com">
                                 <div class="text-center">
                                     <img style="width: 12rem !important;
-                                                height: 7rem !important;" 
+                                                height: 7rem !important;
+                                                margin-bottom: 1rem !important;
+                                                " 
                                          class="logo-navbar"
                                          src="images/ci.png">
                                 </div>
@@ -336,7 +338,7 @@
             <ul>
                 <li><a href="index.html" class="btn btn-outline-light align-content-center" style="width: fit-content;margin-left:37%" href="index.html">FA</a></li>
                 <li><a href="#contactus" onClick="window.location.reload()">Contact US</a></li>
-                <li><a href="cando-testimonial.html"> TESTIMONIAL</a></li>
+                <li><a href="https://cdsapply.com/cando-testimonial.html"> TESTIMONIAL</a></li>
                 <li><a href="#wbn" onClick="window.location.reload()">CONSULTATION REQUEST</a></li>
                 <!-- <li class=" rounded">
                     <button type="submit" id="searchQbtn" aria-label="Search..." class="search-btn" onclick="gotosearch()"><i class="fa fa-search"></i></button>
@@ -347,8 +349,8 @@
         </div>
         <div class="menu_reservations_phone ml-auto"><div class="logo">
             <a href="https//cdsapply.com">
-                <div>C    D    S Apply</div>
-                <div class="mt-3">we build careers</div>
+                <div class="__footerCDSApply">C    D    S Apply</div>
+                <div class="mt-3 __footerFont">we build careers</div>
             </a>
         </div></div>
     </div>
@@ -513,11 +515,11 @@
                 <div class="col-lg-4 themenu_column" data-aos="zoom-out-left">
                     <a href="posts.html?country=australia&lang=en">
                         <div class="themenu_col text-center bg-white box" 
-                        style="border: dotted 2px black; background-image: url('images/aus.jpg'); background-repeat: no-repeat; background-size: cover;">
+                        style="background-image: url('images/aus.jpg'); background-repeat: no-repeat; background-size: cover;">
 
                             <img src="images/empty-png.png">
                             <a href="posts.html?country=australia&lang=en">
-                                <div class="themenu_col_title col-lg-11 mt-3 " data-aos="zoom-in-down" style="background-color: aliceblue;">Australia</div>
+                                <div class="themenu_col_title col-lg-11 mt-3 " data-aos="zoom-in-down" style="background-color: white;">Australia</div>
                             </a>
                         </div>
                 </a>
@@ -525,11 +527,11 @@
                 <div class="col-lg-4 themenu_column" data-aos="flip-up">
                     <a href="posts.html?country=canada&lang=en">
                         <div class="themenu_col text-center bg-white box" 
-                        style="border: dotted 2px black; background-image: url('images/canada.jpg'); background-repeat: no-repeat; background-size: cover;">
+                        style="background-image: url('images/canada.jpg'); background-repeat: no-repeat; background-size: cover;">
 
                             <img src="images/empty-png.png">
                             <a href="posts.html?country=canada&lang=en">
-                                <div class="themenu_col_title col-lg-11 mt-3" data-aos="zoom-in-down" style="background-color: aliceblue;">Canada</div>
+                                <div class="themenu_col_title col-lg-11 mt-3" data-aos="zoom-in-down" style="background-color: white;">Canada</div>
                             </a>
                         </div>
                 </a>
@@ -537,11 +539,11 @@
                 <div class="col-lg-4 themenu_column" data-aos="zoom-out-right">
                     <a href="posts.html?country=newzealand&lang=en">
                         <div class="themenu_col text-center bg-white box" 
-                        style="border: dotted 2px black; background-image: url('images/newz.jpg'); background-repeat: no-repeat; background-size: cover;">
+                        style="background-image: url('images/newz.jpg'); background-repeat: no-repeat; background-size: cover;">
 
                             <img src="images/empty-png.png">
                             <a href="posts.html?country=newzealand&lang=en">
-                                <div class="themenu_col_title col-lg-11 mt-3 " data-aos="zoom-in-down" style="padding-left: 4px !important; background-color: aliceblue;">New Zealand</div>
+                                <div class="themenu_col_title col-lg-11 mt-3 " data-aos="zoom-in-down" style="padding-left: 4px !important; background-color: white;">New Zealand</div>
                             </a>
 
 
@@ -865,7 +867,7 @@
 
     <div class="container mt-5 mb-5">
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4" style="max-height: 415px;overflow-y: scroll;overflow-x: hidden;">
                <div class=""><h2 class="text-center " data-aos="fade-right" data-aos-duration="500">Top Articles</h2></div>
                 <div class="text-left ">
                     <ul id="bestof">
@@ -874,6 +876,7 @@
                     </ul>
                 </div>
             </div>
+
             <div class="col-lg-8" id="posts">
                <a href="all-posts-en.html"><h2 id="__allposts" class="text-center" data-aos="fade-up"> Blog</h2></a>
                 
@@ -921,7 +924,34 @@
 
             </div>
 
+                <div class="text-right" data-aos="fade-up" data-aos-duration="500" id="cont__btn" style="display: none;">
+                    <a class="btn btn-outline-warning" href="https://cdsapply.com/all-posts-en.html"><span id="cont__btn__text">Continue </span></a>
+                </div>
 
+
+                <style>
+                    #cont__btn__text {
+                      transition: 0.5s;
+                    }
+
+                    #cont__btn__text:after {
+                      content: '\00bb';
+                      /*position: absolute;*/
+                      opacity: 0;
+                      top: 0;
+                      /*right: -20px;*/
+                      transition: 0.1s;
+                    }
+
+                    #cont__btn:hover span {
+                      padding-right: 10px;
+                    }
+
+                    #cont__btn:hover #cont__btn__text:after {
+                      opacity: 1;
+                      right: 0;
+                    }
+                </style>
 
 
             </div>
@@ -993,7 +1023,7 @@
 
                 </div>
                 <div class="home_text col-lg-6" style="margin-top: 20px;font-size: 11px">
-                    Design by:
+                    Design & Develop by:
                     <a href="https://unixerr.com/blog" class="mt-0">yucatán</a>
                 </div>
 
