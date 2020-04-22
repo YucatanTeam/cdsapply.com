@@ -423,7 +423,7 @@ section
 }
 .main_nav ul li a
 {
-	font-size: 16px;
+	font-size: 12px !important;
 	font-weight: 700;
 	color: #FFFFFF;
 	text-transform: uppercase;
