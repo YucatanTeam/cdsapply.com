@@ -57,9 +57,9 @@ fetch('https://panel.cdsapply.com:2017/api/collections/get/seo?token=account-3eb
     .then(seo => {
         seo = seo.entries
         $('meta[name=description]').remove();
-        $('head').append(`<meta name="description" content=${seo[0].tags.join()}>`);
+        $('head').append(`<meta name="description" content="${seo[0].tags.join()}">`);
         for(i = 0; i < seo[0].tags.length; i++){
-            $('head').append(`<meta name="description" content=${seo[0].tags[i]}>`);
+            $('head').append(`<meta name="description" content="${seo[0].tags[i]}">`);
         }
     })
 
