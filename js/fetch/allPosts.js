@@ -49,8 +49,8 @@ fetch('https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3e
             cardLink.appendChild(secDiv)
             secDiv.appendChild(cardHeader)
             secDiv.appendChild(thDiv)
-            cardLink.appendChild(fDiv)
-            fDiv.appendChild(cardTime)
+            // cardLink.appendChild(fDiv)
+            // fDiv.appendChild(cardTime)
 
 
             document.getElementById("postCards").appendChild(divCard)

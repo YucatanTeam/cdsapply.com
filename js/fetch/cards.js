@@ -156,8 +156,8 @@ if(fetch_cmd && (lang == 'en' || lang == 'fa')){
                 cardLink.appendChild(secDiv)
                 secDiv.appendChild(cardHeader)
                 secDiv.appendChild(thDiv)
-                cardLink.appendChild(fDiv)
-                fDiv.appendChild(cardTime)
+                // cardLink.appendChild(fDiv)
+                // fDiv.appendChild(cardTime)
 
 
                 document.getElementById("cards").appendChild(divCard)

@@ -11,6 +11,7 @@ fetch(`https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3e
                 
 
                 $("#loading").hide()
+                $(".hr__posts").show()
                 document.getElementById("cont__btn").style.display = "block"
                 $(".linkpost1").attr("href", "https://cdsapply.com/content.html?slug="+posts[0].en_slug+"&id="+posts[0]._id+"&lang=en")
                 $(".linkpost1__F").append(posts[0].en_title)
@@ -48,6 +49,7 @@ fetch(`https://panel.cdsapply.com:2017/api/collections/get/post?token=account-3e
                 document.getElementById("imgpost4").setAttribute("src", "https://panel.cdsapply.com:2017"+posts[3].logo.path)
             } else{
                 $("#loading").show()
+                $(".hr__posts").hide()
             }
       })
 

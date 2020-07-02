@@ -426,7 +426,7 @@ section
 	font-size: 12px !important;
 	font-weight: 700;
 	color: #FFFFFF;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 }
 .main_nav ul li a:hover
 {
@@ -530,7 +530,7 @@ section
 	font-weight: 700;
 	line-height: 12px;
 	letter-spacing: 1px;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	color: #F7F7F7;
 }
 
@@ -573,7 +573,7 @@ section
 {
 	display: block;
 	font-size: 24px;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	color: rgba(255,255,255,1);
 	font-weight: bold;
 	letter-spacing: 0.075em;
