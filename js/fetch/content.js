@@ -86,7 +86,7 @@ if(slug && id && (lang == 'en' || lang == 'fa')){
                  }
 
             if(lang == "fa"){
-        		$('head').append(`<title>موسسه کندو  - CDS Apply | ${posts[0].title}</title>`);
+        		$('head').append(`<title>CDS Apply | ${posts[0].title}</title>`);
             	document.getElementById('content').innerHTML = posts[0].content
                 document.getElementById('content').setAttribute("dir", "rtl")
                 images = document.getElementById('content').getElementsByTagName('img')
@@ -97,7 +97,7 @@ if(slug && id && (lang == 'en' || lang == 'fa')){
                 }
             }
             if (lang == "en"){
-            	$('head').append(`<title>CANDO Study Abroad Agency | ${posts[0].en_title}</title>`);
+            	$('head').append(`<title>${posts[0].en_title} | CDS Apply</title>`);
             	document.getElementById('content').innerHTML = posts[0].en_content
                 document.getElementById('content').setAttribute("dir", "ltr")
                 for(i = 0; i < images.length; i++){
