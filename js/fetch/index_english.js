@@ -73,7 +73,7 @@ fetch('https://panel.cdsapply.com:2017/api/collections/get/bestof?token=account-
         for(i = 0; i < bestof.length; i++){
             li = document.createElement("li")
             link = document.createElement("a")
-            link.classList.add("btn", "btn-outline-dark", "mt-2", "mr-4")
+            link.classList.add("btn", "btn-outline-dark", "mt-2", "mr-4", "btn-sm")
             link.setAttribute("data-aos", "fade-right")
             link.setAttribute("data-aos-duration", "500")
             link.href = bestof[i].link
